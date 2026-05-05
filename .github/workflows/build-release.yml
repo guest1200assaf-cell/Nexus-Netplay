@@ -113,15 +113,13 @@ jobs:
             |--------|-------|
             | Windows (مثبّت) | `Nexus-Netplay-Setup-*.exe` |
             | Windows (Portable) | `Nexus-Netplay-Portable-*.exe` |
-            | macOS | `Nexus-Netplay-*-mac.dmg` |
             | Linux | `Nexus-Netplay-*-linux.AppImage` |
 
             ### ما الجديد؟
             <!-- سيتم ملؤه تلقائياً من Commits -->
           files: |
-            artifacts/windows-build/*.exe
-            artifacts/windows-build/latest.yml
-            artifacts/macos-build/*.dmg
-            artifacts/linux-build/*.AppImage
+            release/*.exe
+            release/*.AppImage
+            release/latest.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
