@@ -33,8 +33,12 @@ function createWindow() {
     mainWindow.loadURL('http://localhost:5173');
     mainWindow.webContents.openDevTools({ mode: 'detach' });
   } else {
-    // In production, the file is located at the app root dist folder
-    mainWindow.loadFile(path.join(app.getAppPath(), 'dist', 'index.html'));
+    const indexPath = path.join(app.getAppPath(), 'dist', 'index.html');
+    mainWindow.loadFile(indexPath).catch(err => {
+      console.error('Failed to load index.html:', err);
+    });
+    // Temporary for debugging production build blank screen
+    mainWindow.webContents.openDevTools({ mode: 'detach' });
   }
 
   mainWindow.on('closed', () => { mainWindow = null; });
