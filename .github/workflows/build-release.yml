@@ -26,12 +26,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Vite renderer
-        run: npm run build:renderer
+      - name: Install icon builder
+        run: npm install electron-icon-builder --no-save
 
-      - name: Convert PNG icon to ICO
-        run: npx electron-icon-builder --input=assets/icons/nexus.png --output=assets/icons/
-        continue-on-error: true   # Non-fatal if icon conversion fails
+      - name: Convert PNG icon to all formats
+        run: npx electron-icon-builder --input=assets/icons/nexus.png --output=assets/ --flatten
 
       - name: Build Windows packages
         env:
@@ -59,6 +58,8 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build:renderer
+      - name: Build icons
+        run: npx electron-icon-builder --input=assets/icons/nexus.png --output=assets/ --flatten
       - name: Build macOS
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}

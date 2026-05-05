@@ -36,6 +36,7 @@
     "cross-env": "^7.0.3",
     "electron": "^26.1.0",
     "electron-builder": "^24.6.4",
+    "electron-icon-builder": "^2.0.1",
     "electron-log": "^5.4.3",
     "postcss": "^8.4.28",
     "vite": "^4.4.9",
@@ -89,16 +90,16 @@
           ]
         }
       ],
-      "icon": "assets/icons/nexus.ico",
+      "icon": "assets/icons/nexus.png",
       "requestedExecutionLevel": "asInvoker"
     },
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "allowElevation": true,
-      "installerIcon": "assets/icons/nexus.ico",
-      "uninstallerIcon": "assets/icons/nexus.ico",
-      "installerHeaderIcon": "assets/icons/nexus.ico",
+      "installerIcon": "assets/icons/nexus.png",
+      "uninstallerIcon": "assets/icons/nexus.png",
+      "installerHeaderIcon": "assets/icons/nexus.png",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "shortcutName": "Nexus Netplay",
@@ -124,7 +125,7 @@
           ]
         }
       ],
-      "icon": "assets/icons/nexus.icns",
+      "icon": "assets/icons/nexus.png",
       "category": "public.app-category.games",
       "artifactName": "Nexus-Netplay-${version}-mac.${ext}"
     },
