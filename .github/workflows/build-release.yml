@@ -70,6 +70,7 @@ jobs:
       - name: Build macOS
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          CSC_IDENTITY_AUTODISCOVERY: false
         run: npx electron-builder --mac --publish never
       - uses: actions/upload-artifact@v4
         with:
