@@ -32,8 +32,8 @@ jobs:
       - name: Convert PNG icon to all formats
         run: |
           npx electron-icon-builder --input=assets/icons/nexus.png --output=assets/icons --flatten
-          mv assets/icons/icon.ico assets/icons/nexus.ico
-          mv assets/icons/icon.icns assets/icons/nexus.icns
+          mv assets/icons/icons/icon.ico assets/icons/nexus.ico
+          mv assets/icons/icons/icon.icns assets/icons/nexus.icns
         shell: bash
 
       - name: Build Windows packages
@@ -65,8 +65,8 @@ jobs:
       - name: Build icons
         run: |
           npx electron-icon-builder --input=assets/icons/nexus.png --output=assets/icons --flatten
-          mv assets/icons/icon.ico assets/icons/nexus.ico
-          mv assets/icons/icon.icns assets/icons/nexus.icns
+          mv assets/icons/icons/icon.ico assets/icons/nexus.ico
+          mv assets/icons/icons/icon.icns assets/icons/nexus.icns
       - name: Build macOS
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
