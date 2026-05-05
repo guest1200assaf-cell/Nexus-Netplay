@@ -1,0 +1,78 @@
+appId: com.nexus.netplay-hub
+productName: "Nexus Netplay Hub"
+copyright: "Copyright © 2025 Nexus Team"
+
+# ── Icons ──────────────────────────────────────────────────────────────────────
+# Windows: .ico (256x256 recommended, contains 16/32/48/64/128/256 sizes)
+# macOS:   .icns (contains 16/32/64/128/256/512/1024 sizes)
+# Linux:   .png (512x512)
+icon: assets/icons/nexus.png
+
+# ── ASAR archive ──────────────────────────────────────────────────────────────
+asar: true
+asarUnpack:
+  - "node_modules/simple-peer/**"
+  - "node_modules/ws/**"
+
+# ── Files to include ──────────────────────────────────────────────────────────
+files:
+  - dist/**
+  - src/main/**
+  - src/shared/**
+  - assets/**
+  - package.json
+
+# ── Output directory ──────────────────────────────────────────────────────────
+directories:
+  buildResources: assets
+  output: release
+
+# ── GitHub publish ─────────────────────────────────────────────────────────────
+publish:
+  provider: github
+  owner: guest1200assaf-cell
+  repo: Nexus-Netplay
+  releaseType: release
+
+# ── Windows ───────────────────────────────────────────────────────────────────
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: portable
+      arch: [x64]
+  icon: assets/icons/nexus.ico
+  requestedExecutionLevel: asInvoker
+
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  installerIcon: assets/icons/nexus.ico
+  uninstallerIcon: assets/icons/nexus.ico
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: "Nexus Netplay"
+  artifactName: "Nexus-Netplay-Setup-${version}.exe"
+
+portable:
+  artifactName: "Nexus-Netplay-Portable-${version}.exe"
+
+# ── macOS ─────────────────────────────────────────────────────────────────────
+mac:
+  target:
+    - target: dmg
+      arch: [x64, arm64]
+  icon: assets/icons/nexus.icns
+  category: public.app-category.games
+  artifactName: "Nexus-Netplay-${version}-mac.${ext}"
+
+# ── Linux ─────────────────────────────────────────────────────────────────────
+linux:
+  target:
+    - target: AppImage
+      arch: [x64]
+    - target: deb
+      arch: [x64]
+  icon: assets/icons/nexus.png
+  category: Game
+  artifactName: "Nexus-Netplay-${version}-linux.${ext}"
