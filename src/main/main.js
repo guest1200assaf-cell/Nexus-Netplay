@@ -33,12 +33,8 @@ function createWindow() {
     mainWindow.loadURL('http://localhost:5173');
     mainWindow.webContents.openDevTools({ mode: 'detach' });
   } else {
-    const indexPath = path.join(app.getAppPath(), 'dist', 'index.html');
-    mainWindow.loadFile(indexPath).catch(err => {
-      console.error('Failed to load index.html:', err);
-    });
-    // Temporary for debugging production build blank screen
-    mainWindow.webContents.openDevTools({ mode: 'detach' });
+    // Correct way to load file in packaged app
+    mainWindow.loadFile(path.join(__dirname, '../../dist/index.html'));
   }
 
   mainWindow.on('closed', () => { mainWindow = null; });
