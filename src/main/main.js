@@ -1,5 +1,5 @@
 // ─── Nexus Netplay Hub — Electron Main Process ──────────────────────────────
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, session } = require('electron');
 const path = require('path');
 
 const { setupEmulatorIPC }     = require('./ipc/emulator.ipc');
@@ -25,6 +25,7 @@ function createWindow() {
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: false,
+      webSecurity: false,
     },
   });
 
