@@ -97,12 +97,12 @@ jobs:
         id: version
         run: echo "VERSION=${GITHUB_REF_NAME}" >> $GITHUB_OUTPUT
 
-      - name: Create Draft Release
+      - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name:   ${{ github.ref_name }}
           name:       "Nexus Netplay Hub ${{ steps.version.outputs.VERSION }}"
-          draft:      true        # ← Draft حتى تراجعه يدوياً قبل النشر
+          draft:      false
           prerelease: false
           generate_release_notes: true
           body: |
