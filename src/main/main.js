@@ -34,14 +34,8 @@ function createWindow() {
     mainWindow.loadURL('http://localhost:5173');
     mainWindow.webContents.openDevTools({ mode: 'detach' });
   } else {
-    const { format } = require('url');
-    mainWindow.loadURL(
-      format({
-        pathname: path.join(__dirname, '../../dist/index.html'),
-        protocol: 'file:',
-        slashes: true,
-      })
-    );
+    // Load from extraResources (outside ASAR) for reliable file access
+    mainWindow.loadFile(path.join(process.resourcesPath, 'dist', 'index.html'));
   }
 
   mainWindow.on('closed', () => { mainWindow = null; });

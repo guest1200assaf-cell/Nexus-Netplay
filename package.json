@@ -55,6 +55,7 @@
     ],
     "files": [
       "dist/**",
+      "!dist/.vite/**",
       "src/main/**",
       "src/shared/**",
       "assets/**",
@@ -62,11 +63,9 @@
     ],
     "extraResources": [
       {
-        "from": "assets/",
-        "to": "assets/",
-        "filter": [
-          "**/*"
-        ]
+        "from": "dist/",
+        "to": "dist/",
+        "filter": ["**/*"]
       }
     ],
     "publish": {
