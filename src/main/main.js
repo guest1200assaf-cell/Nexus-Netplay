@@ -34,8 +34,14 @@ function createWindow() {
     mainWindow.loadURL('http://localhost:5173');
     mainWindow.webContents.openDevTools({ mode: 'detach' });
   } else {
-    // Correct way to load file in packaged app
-    mainWindow.loadFile(path.join(__dirname, '../../dist/index.html'));
+    const { format } = require('url');
+    mainWindow.loadURL(
+      format({
+        pathname: path.join(__dirname, '../../dist/index.html'),
+        protocol: 'file:',
+        slashes: true,
+      })
+    );
   }
 
   mainWindow.on('closed', () => { mainWindow = null; });
