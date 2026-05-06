@@ -4,8 +4,7 @@ const os = require('os');
 function getLocalIP() {
   const interfaces = os.networkInterfaces();
   for (const name of Object.keys(interfaces)) {
-    for (const iface of interfaces[name]) {
-      if (iface.family === 'IPv4' && !iface.internal) return iface.address;
+    for (const iface of interfaces[name]) {      if (iface.family === 'IPv4' && !iface.internal) return iface.address;
     }
   }
   return '127.0.0.1';
@@ -17,7 +16,7 @@ function setupNetworkIPC(ipcMain) {
 
   ipcMain.handle('network:upnp-open', async (_, port) => {
     try {
-      // nat-upnp ظٹطھط·ظ„ط¨ طھط«ط¨ظٹطھ ط§ظ„ظ…ظƒطھط¨ط©
+      // nat-upnp يتطلب تثبيت المكتبة
       const upnp = require('nat-upnp').createClient();
       await new Promise((resolve, reject) => {
         upnp.portMapping({
@@ -29,10 +28,10 @@ function setupNetworkIPC(ipcMain) {
         }, err => err ? reject(err) : resolve());
       });
       upnp.close();
-      console.log(`[UPnP] âœ… Port ${port} opened`);
+      console.log(`[UPnP] ✅ Port ${port} opened`);
       return { success: true, port };
     } catch (e) {
-      console.warn('[UPnP] âڑ ï¸ڈ', e.message);
+      console.warn('[UPnP] ⚠️', e.message);
       return { success: false, error: e.message };
     }
   });
@@ -47,8 +46,7 @@ function setupNetworkIPC(ipcMain) {
       });
       upnp.close();
       return { success: true };
-    } catch (e) { return { success: false, error: e.message }; }
-  });
+    } catch (e) { return { success: false, error: e.message }; }  });
 }
 
 module.exports = { setupNetworkIPC, getLocalIP };

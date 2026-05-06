@@ -7,12 +7,10 @@ import Settings from './pages/Settings';
 
 export default function App() {
   return (
-    <HashRouter>
-      <Routes>
+    <HashRouter>      <Routes>
         <Route path="/"         element={<Home />} />
         <Route path="/lobby"    element={<Lobby />} />
         <Route path="/settings" element={<Settings />} />
       </Routes>
-    </HashRouter>
-  );
+    </HashRouter>  );
 }

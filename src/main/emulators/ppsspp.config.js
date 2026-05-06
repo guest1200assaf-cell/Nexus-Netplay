@@ -1,5 +1,4 @@
-// src/main/emulators/ppsspp.config.js
-const fs   = require('fs');
+// src/main/emulators/ppsspp.config.jsconst fs   = require('fs');
 const path = require('path');
 const os   = require('os');
 const { spawn } = require('child_process');
@@ -36,7 +35,7 @@ function injectPPSSPPNetplayConfig({ hostIP, port, isHost }) {
   set('EnableUPnP',       'True');
 
   fs.writeFileSync(configPath, content, 'utf-8');
-  console.log('[PPSSPP] âœ… Config injected');
+  console.log('[PPSSPP] ✅ Config injected');
   return { success: true };
 }
 
@@ -44,8 +43,7 @@ function restorePPSSPPConfig() {
   const p = getPPSSPPConfigPath();
   const b = p + '.nexus-backup';
   if (fs.existsSync(b)) { fs.copyFileSync(b,p); fs.unlinkSync(b); return { success:true }; }
-  return { success:false };
-}
+  return { success:false };}
 
 function launchPPSSPP(executablePath, isoPath = null, onExit = () => {}) {
   const args = isoPath ? [isoPath] : [];

@@ -10,7 +10,7 @@ function startSignalingServer(port = 7331) {
       wss = new WebSocketServer({ port });
 
       wss.on('listening', () => {
-        console.log(`[Signaling] âœ… ط®ط§ط¯ظ… ط§ظ„ط¥ط´ط§ط±ط© ظٹط¹ظ…ظ„ ط¹ظ„ظ‰ ط§ظ„ظ…ظ†ظپط° ${port}`);
+        console.log(`[Signaling] ✅ خادم الإشارة يعمل على المنفذ ${port}`);
         resolve(wss);
       });
 
@@ -27,7 +27,7 @@ function startSignalingServer(port = 7331) {
               rooms.get(clientRoom).add(ws);
               console.log(`[Signaling] Client joined room: ${clientRoom} (${rooms.get(clientRoom).size} peers)`);
 
-              // ط¥ط´ط¹ط§ط± ط§ظ„ط·ط±ظپ ط§ظ„ط¢ط®ط± ط¨ظˆط¬ظˆط¯ ظ„ط§ط¹ط¨ ط¬ط¯ظٹط¯
+              // إشعار الطرف الآخر بوجود لاعب جديد
               rooms.get(clientRoom).forEach(peer => {
                 if (peer !== ws && peer.readyState === 1) {
                   peer.send(JSON.stringify({ type: 'peer_joined' }));
@@ -36,7 +36,7 @@ function startSignalingServer(port = 7331) {
             }
 
             if (msg.type === 'signal' && clientRoom) {
-              // ط¥ط¹ط§ط¯ط© طھظˆط¬ظٹظ‡ ط¥ط´ط§ط±ط© WebRTC ظ„ظ„ط·ط±ظپ ط§ظ„ط¢ط®ط± ظپظ‚ط·
+              // إعادة توجيه إشارة WebRTC للطرف الآخر فقط
               rooms.get(clientRoom)?.forEach(peer => {
                 if (peer !== ws && peer.readyState === 1) {
                   peer.send(JSON.stringify({ type: 'signal', data: msg.data }));

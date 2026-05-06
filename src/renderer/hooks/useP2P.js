@@ -18,7 +18,7 @@ export function useP2P() {
 
   const { setConnectionStatus, setSyncProgress, addPeer, roomCode } = useNexusStore();
 
-  // â”€â”€ ط®ط§ط¯ظ… ط§ظ„ط¥ط´ط§ط±ط© ط§ظ„ظ…ط­ظ„ظٹ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── خادم الإشارة المحلي ──────────────────────────────
   const connectSignaling = useCallback((code) => {
     const ws = new WebSocket('ws://localhost:7331');
     signalingRef.current = ws;
@@ -28,14 +28,14 @@ export function useP2P() {
       const msg = JSON.parse(data);
       if (msg.type === 'signal' && peerRef.current) peerRef.current.signal(msg.data);
       if (msg.type === 'peer_joined' && peerRef.current?.initiator) {
-        // ظ„ط§ ط´ظٹط، â€” SimplePeer ظٹط¨ط¯ط£ طھظ„ظ‚ط§ط¦ظٹط§ظ‹
+        // لا شيء — SimplePeer يبدأ تلقائياً
       }
     };
     ws.onerror = (e) => console.error('[WS]', e);
     return ws;
   }, []);
 
-  // â”€â”€ ط¥ظ†ط´ط§ط، Peer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── إنشاء Peer ───────────────────────────────────────
   const createPeer = useCallback((isInitiator, mediaStream = null) => {
     if (peerRef.current) { peerRef.current.destroy(); }
 
@@ -52,7 +52,7 @@ export function useP2P() {
     });
 
     peer.on('connect', () => {
-      console.log('âœ… P2P ظ…طھطµظ„!');
+      console.log('✅ P2P متصل!');
       setConnectionStatus('connected');
       addPeer({ id: Date.now(), connected: true });
     });
@@ -65,13 +65,13 @@ export function useP2P() {
     return peer;
   }, [setConnectionStatus, addPeer]);
 
-  // â”€â”€ ط¥ط±ط³ط§ظ„ ط¶ط؛ط·ط§طھ ط§ظ„ط£ط²ط±ط§ط± â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── إرسال ضغطات الأزرار ─────────────────────────────
   const sendInput = useCallback((input) => {
     if (!peerRef.current?.connected) return;
     peerRef.current.send(JSON.stringify({ type: 'input', ...input }));
   }, []);
 
-  // â”€â”€ ط¥ط±ط³ط§ظ„ Save State ظ…ط¬ط²ط£ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── إرسال Save State مجزأ ───────────────────────────
   const sendSaveState = useCallback(async (fileBuffer) => {
     if (!peerRef.current?.connected) return;
     const total = Math.ceil(fileBuffer.byteLength / CHUNK);
@@ -80,12 +80,11 @@ export function useP2P() {
 
     for (let i = 0; i < total; i++) {
       peerRef.current.send(fileBuffer.slice(i * CHUNK, (i + 1) * CHUNK));
-      setSyncProgress(Math.round(((i + 1) / total) * 90));
-      await new Promise(r => setTimeout(r, 8));
+      setSyncProgress(Math.round(((i + 1) / total) * 90));      await new Promise(r => setTimeout(r, 8));
     }
   }, [setSyncProgress]);
 
-  // â”€â”€ طھط³ط¬ظٹظ„ ظ…ط¹ط§ظ„ط¬ ط¨ظٹط§ظ†ط§طھ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── تسجيل معالج بيانات ──────────────────────────────
   const onData = useCallback((fn) => {
     dataHandlers.current.push(fn);
     return () => { dataHandlers.current = dataHandlers.current.filter(h => h !== fn); };
@@ -97,5 +96,4 @@ export function useP2P() {
     setConnectionStatus('idle');
   }, [setConnectionStatus]);
 
-  return { createPeer, connectSignaling, sendInput, sendSaveState, onData, disconnect, peer: peerRef };
-}
+  return { createPeer, connectSignaling, sendInput, sendSaveState, onData, disconnect, peer: peerRef };}

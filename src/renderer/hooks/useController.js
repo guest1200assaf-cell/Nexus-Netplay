@@ -36,9 +36,9 @@ export function useController(onInput) {
   }, [poll]);
 }
 
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────────────────────
 
-// src/renderer/hooks/useVoiceChat.js â€” exported separately below
+// src/renderer/hooks/useVoiceChat.js — exported separately below
 export function useVoiceChat() {
   const streamRef   = useRef(null);
   const ctxRef      = useRef(null);
@@ -51,7 +51,7 @@ export function useVoiceChat() {
       });
       streamRef.current = s;
 
-      // Analyser ظ„ظ„ظ€ UI
+      // Analyser للـ UI
       ctxRef.current = new AudioContext();
       const analyser = ctxRef.current.createAnalyser();
       analyser.fftSize = 256;
@@ -85,9 +85,9 @@ export function useVoiceChat() {
   return { init, playRemote, setMuted, stop, streamRef };
 }
 
-// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─────────────────────────────────────────────────────────────────────────────
 
-// src/renderer/hooks/useFrameSync.js â€” exported separately below
+// src/renderer/hooks/useFrameSync.js — exported separately below
 export function useFrameSync(peerRef, onReady) {
   const chunks   = useRef([]);
   const expected = useRef(0);
@@ -102,7 +102,7 @@ export function useFrameSync(peerRef, onReady) {
       await new Promise(r => setTimeout(r, 8));
     }
 
-    // ط§ظ†طھط¸ط§ط± ACK
+    // انتظار ACK
     const handler = (data) => {
       try {
         const m = JSON.parse(data);

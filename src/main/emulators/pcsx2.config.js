@@ -1,5 +1,4 @@
-// src/main/emulators/pcsx2.config.js
-const fs   = require('fs');
+// src/main/emulators/pcsx2.config.jsconst fs   = require('fs');
 const path = require('path');
 const os   = require('os');
 const { spawn } = require('child_process');
@@ -12,8 +11,7 @@ function getPCSX2ConfigPath(custom = null) {
     linux:  [path.join(home,'.config','PCSX2','inis','PCSX2.ini')],
     darwin: [path.join(home,'Library','Application Support','PCSX2','inis','PCSX2.ini')],
   };
-  const list = candidates[process.platform] || candidates.linux;
-  return list.find(p => fs.existsSync(p)) || list[0];
+  const list = candidates[process.platform] || candidates.linux;  return list.find(p => fs.existsSync(p)) || list[0];
 }
 
 function parseINI(filePath) {
@@ -28,8 +26,7 @@ function parseINI(filePath) {
     const kv = line.match(/^([^=]+)=(.*)$/);
     if (kv) {
       if (!result[section]) result[section] = {};
-      result[section][kv[1].trim()] = kv[2].trim();
-    }
+      result[section][kv[1].trim()] = kv[2].trim();    }
   }
   return result;
 }
@@ -39,8 +36,7 @@ function serializeINI(parsed) {
   for (const [sec, pairs] of Object.entries(parsed)) {
     if (sec !== '__global__') out += `[${sec}]\n`;
     for (const [k,v] of Object.entries(pairs)) out += `${k} = ${v}\n`;
-    out += '\n';
-  }
+    out += '\n';  }
   return out;
 }
 
@@ -60,7 +56,7 @@ function injectPCSX2NetworkConfig({ hostIP, port, isHost }, customPath = null) {
     const backup = p + '.nexus-backup';
     if (!fs.existsSync(backup)) fs.copyFileSync(p, backup);
     fs.writeFileSync(p, serializeINI(ini), 'utf-8');
-    console.log(`[PCSX2] âœ… ${p}`);
+    console.log(`[PCSX2] ✅ ${p}`);
   }
   return { success: true, configPath };
 }

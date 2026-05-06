@@ -11,7 +11,7 @@ function setupFilesIPC(ipcMain) {
 
   ipcMain.handle('files:select-save-state', async () => {
     const { canceled, filePaths } = await dialog.showOpenDialog({
-      title: 'ط§ط®طھط± ظ…ظ„ظپ Save State',
+      title: 'اختر ملف Save State',
       properties: ['openFile'],
       filters: [{ name: 'Save States', extensions: ['p2s','gci','sav','savestate','bin'] }],
     });
@@ -31,8 +31,7 @@ function setupFilesIPC(ipcMain) {
       const outPath = path.join(SAVE_DIR, filename || `nexus_${Date.now()}.sav`);
       fs.writeFileSync(outPath, Buffer.from(data, 'base64'));
       return { success: true, path: outPath };
-    } catch (e) { return { success: false, error: e.message }; }
-  });
+    } catch (e) { return { success: false, error: e.message }; }  });
 }
 
 module.exports = { setupFilesIPC };

@@ -13,19 +13,17 @@ function setupEmulatorIPC(ipcMain) {
       ppsspp: [{ name: 'PPSSPP', extensions: ['exe',''] }],
     };
     const { canceled, filePaths } = await dialog.showOpenDialog({
-      title: `ط§ط®طھط± ${name}`,
+      title: `اختر ${name}`,
       properties: ['openFile'],
-      filters: filters[name] || [],
-    });
+      filters: filters[name] || [],    });
     return canceled ? null : filePaths[0];
   });
 
   ipcMain.handle('emulator:select-iso', async () => {
     const { canceled, filePaths } = await dialog.showOpenDialog({
-      title: 'ط§ط®طھط± ظ…ظ„ظپ ط§ظ„ظ„ط¹ط¨ط©',
+      title: 'اختر ملف اللعبة',
       properties: ['openFile'],
-      filters: [{ name: 'Game Files', extensions: ['iso','cso','bin','elf','gcm','wbfs','rvz'] }],
-    });
+      filters: [{ name: 'Game Files', extensions: ['iso','cso','bin','elf','gcm','wbfs','rvz'] }],    });
     return canceled ? null : filePaths[0];
   });
 
@@ -61,8 +59,7 @@ function setupEmulatorIPC(ipcMain) {
 
   ipcMain.handle('emulator:restore-config', async (_, name) => {
     const map = { pcsx2: restorePCSX2Config };
-    return map[name] ? map[name]() : { success: false };
-  });
+    return map[name] ? map[name]() : { success: false };  });
 }
 
 module.exports = { setupEmulatorIPC };

@@ -1,5 +1,4 @@
-// src/main/emulators/dolphin.config.js
-const fs   = require('fs');
+// src/main/emulators/dolphin.config.jsconst fs   = require('fs');
 const path = require('path');
 const os   = require('os');
 const { spawn } = require('child_process');
@@ -23,7 +22,7 @@ function injectDolphinNetplayConfig({ hostIP, port, isHost, nickname = 'Player' 
   const backup  = configPath + '.nexus-backup';
   if (!fs.existsSync(backup)) fs.copyFileSync(configPath, backup);
 
-  // Dolphin ظٹط³طھط®ط¯ظ… ظ‚ط³ظ… [NetPlay]
+  // Dolphin يستخدم قسم [NetPlay]
   let updated = content;
   const set = (key, value) => {
     const re = new RegExp(`^${key}\\s*=.*$`, 'm');
@@ -38,7 +37,7 @@ function injectDolphinNetplayConfig({ hostIP, port, isHost, nickname = 'Player' 
   set('TraversalPort', String(port));
 
   fs.writeFileSync(configPath, updated, 'utf-8');
-  console.log('[Dolphin] âœ… Config injected');
+  console.log('[Dolphin] ✅ Config injected');
   return { success: true };
 }
 

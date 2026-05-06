@@ -6,7 +6,6 @@ const { setupNetworkIPC }  = require('./ipc/network.ipc');
 const { setupFilesIPC }    = require('./ipc/files.ipc');
 const { startSignalingServer } = require('./network/signaling.server');
 const { setupAutoUpdater }     = require('./updater');
-
 let mainWindow;
 
 function createWindow() {
@@ -35,8 +34,7 @@ function createWindow() {
       : `file://${path.join(__dirname, '../../dist/index.html')}`
   );
 
-  if (isDev) mainWindow.webContents.openDevTools({ mode: 'detach' });
-}
+  if (isDev) mainWindow.webContents.openDevTools({ mode: 'detach' });}
 
 app.whenReady().then(async () => {
   createWindow();
@@ -50,8 +48,7 @@ app.whenReady().then(async () => {
   ipcMain.on('window:maximize', () =>
     mainWindow.isMaximized() ? mainWindow.unmaximize() : mainWindow.maximize()
   );
-  ipcMain.on('window:close', () => mainWindow.close());
-});
+  ipcMain.on('window:close', () => mainWindow.close());});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();

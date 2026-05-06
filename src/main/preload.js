@@ -2,12 +2,12 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('electronAPI', {
-  // ظ†ط§ظپط°ط©
+  // نافذة
   minimizeWindow:  () => ipcRenderer.send('window:minimize'),
   maximizeWindow:  () => ipcRenderer.send('window:maximize'),
   closeWindow:     () => ipcRenderer.send('window:close'),
 
-  // طھط­ط¯ظٹط«ط§طھ
+  // تحديثات
   checkForUpdates:  () => ipcRenderer.invoke('updater:check-now'),
   installUpdate:    () => ipcRenderer.send('updater:install-now'),
   onUpdaterEvent:   (cb) => ipcRenderer.on('updater:checking',         (_, d) => cb('checking', d))
@@ -17,7 +17,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
                          || ipcRenderer.on('updater:downloaded',       (_, d) => cb('downloaded', d))
                          || ipcRenderer.on('updater:error',            (_, d) => cb('error', d)),
 
-  // ظ…ط­ط§ظƒظٹط§طھ
+  // محاكيات
   selectEmulatorPath: (name)   => ipcRenderer.invoke('emulator:select-path', name),
   selectISOPath:      ()       => ipcRenderer.invoke('emulator:select-iso'),
   launchPCSX2:        (config) => ipcRenderer.invoke('emulator:launch-pcsx2', config),
@@ -26,13 +26,12 @@ contextBridge.exposeInMainWorld('electronAPI', {
   restoreConfig:      (name)   => ipcRenderer.invoke('emulator:restore-config', name),
   onEmulatorExit:     (cb)     => ipcRenderer.on('emulator:process-exited', (_, d) => cb(d)),
 
-  // ظ…ظ„ظپط§طھ Save State
+  // ملفات Save State
   readSaveState:    (filePath) => ipcRenderer.invoke('files:read-save-state', filePath),
   writeSaveState:   (data)     => ipcRenderer.invoke('files:write-save-state', data),
   selectSaveState:  ()         => ipcRenderer.invoke('files:select-save-state'),
 
-  // ط´ط¨ظƒط© / UPnP
+  // شبكة / UPnP
   openPort:  (port) => ipcRenderer.invoke('network:upnp-open', port),
   closePort: (port) => ipcRenderer.invoke('network:upnp-close', port),
-  getLocalIP: ()    => ipcRenderer.invoke('network:get-local-ip'),
-});
+  getLocalIP: ()    => ipcRenderer.invoke('network:get-local-ip'),});
