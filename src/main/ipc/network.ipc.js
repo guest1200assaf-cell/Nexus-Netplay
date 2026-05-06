@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // src/main/ipc/network.ipc.js
 const os = require('os');
 
@@ -5,6 +6,15 @@ function getLocalIP() {
   const interfaces = os.networkInterfaces();
   for (const name of Object.keys(interfaces)) {
     for (const iface of interfaces[name]) {
+=======
+// ─── IPC: Network / UPnP ────────────────────────────────────────────────────
+const os = require('os');
+
+function getLocalIP() {
+  const ifaces = os.networkInterfaces();
+  for (const name of Object.keys(ifaces)) {
+    for (const iface of ifaces[name]) {
+>>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
       if (iface.family === 'IPv4' && !iface.internal) return iface.address;
     }
   }
@@ -12,6 +22,7 @@ function getLocalIP() {
 }
 
 function setupNetworkIPC(ipcMain) {
+<<<<<<< HEAD
 
   ipcMain.handle('network:get-local-ip', () => getLocalIP());
 
@@ -48,6 +59,19 @@ function setupNetworkIPC(ipcMain) {
       upnp.close();
       return { success: true };
     } catch (e) { return { success: false, error: e.message }; }
+=======
+  ipcMain.handle('network:local-ip', () => getLocalIP());
+
+  // UPnP stubs — nat-upnp can be integrated here when needed
+  ipcMain.handle('network:upnp-open', async (_event, port, protocol = 'TCP') => {
+    console.log(`[UPnP] Open port ${port}/${protocol} (stub)`);
+    return { success: true, port, protocol };
+  });
+
+  ipcMain.handle('network:upnp-close', async (_event, port, protocol = 'TCP') => {
+    console.log(`[UPnP] Close port ${port}/${protocol} (stub)`);
+    return { success: true };
+>>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
   });
 }
 

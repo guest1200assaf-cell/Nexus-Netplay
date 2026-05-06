@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // src/main/preload.js
 const { contextBridge, ipcRenderer } = require('electron');
 
@@ -35,4 +36,23 @@ contextBridge.exposeInMainWorld('electronAPI', {
   openPort:  (port) => ipcRenderer.invoke('network:upnp-open', port),
   closePort: (port) => ipcRenderer.invoke('network:upnp-close', port),
   getLocalIP: ()    => ipcRenderer.invoke('network:get-local-ip'),
+=======
+const { contextBridge, ipcRenderer } = require('electron');
+
+// Expose protected methods that allow the renderer process to use
+// the ipcRenderer without exposing the entire object
+contextBridge.exposeInMainWorld('electron', {
+  send: (channel, data) => {
+    let validChannels = ['window:minimize', 'window:maximize', 'window:close'];
+    if (validChannels.includes(channel)) {
+      ipcRenderer.send(channel, data);
+    }
+  },
+  invoke: (channel, data) => {
+    let validChannels = ['window:is-maximized'];
+    if (validChannels.includes(channel)) {
+      return ipcRenderer.invoke(channel, data);
+    }
+  }
+>>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
 });

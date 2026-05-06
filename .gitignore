@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ═══════════════════════════════════════════════════════════════
 #  Nexus Netplay Hub — .gitignore
 # ═══════════════════════════════════════════════════════════════
@@ -90,3 +91,79 @@ coverage/
 *.tar.gz
 assets/icons/icon-source.png
 .eslintcache
+=======
+# ─── Node / npm ───────────────────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp/
+.pnp.js
+
+# ─── Build outputs ────────────────────────────────────────────────────────────
+dist/
+release/
+out/
+build/
+
+# ─── Electron ────────────────────────────────────────────────────────────────
+.electron/
+*.asar
+
+# ─── Vite cache ──────────────────────────────────────────────────────────────
+.vite/
+vite.config.js.timestamp*
+
+# ─── Environment & Secrets ───────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ─── Emulator config backups (local INI patches) ─────────────────────────────
+*.nexus-backup
+*.ini.backup
+PCSX2.ini.nexus-backup
+DEV9.ini.nexus-backup
+ppsspp.ini.nexus-backup
+
+# ─── Save-State files ────────────────────────────────────────────────────────
+*.sav
+*.state
+*.sstates
+
+# ─── OS generated ────────────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ─── IDEs & Editors ──────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+
+# ─── Logs ────────────────────────────────────────────────────────────────────
+logs/
+*.log
+electron-log/
+
+# ─── Test coverage ───────────────────────────────────────────────────────────
+coverage/
+.nyc_output/
+
+# ─── Temporary ───────────────────────────────────────────────────────────────
+tmp/
+temp/
+.tmp/
+>>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e

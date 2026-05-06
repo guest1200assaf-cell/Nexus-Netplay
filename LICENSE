@@ -1,6 +1,10 @@
 MIT License
 
+<<<<<<< HEAD
 Copyright (c) 2025 Nexus Netplay Hub Contributors
+=======
+Copyright (c) 2025 Nexus Team
+>>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,6 +23,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+<<<<<<< HEAD
 
 ───────────────────────────────────────────────────────────────────────────
 
@@ -26,3 +31,5 @@ SOFTWARE.
 هذا البرنامج يتفاعل مع محاكيات ألعاب فيديو مفتوحة المصدر (PCSX2, Dolphin, PPSSPP).
 المطور غير مسؤول عن أي استخدام لمحتوى محمي بحقوق الملكية الفكرية.
 يجب امتلاك نسخ أصلية من الألعاب لاستخدام قانوني للمحاكيات.
+=======
+>>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e

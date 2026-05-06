@@ -1,13 +1,19 @@
 {
   "name": "nexus-netplay-hub",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "نظام المحاكاة الشبكي العابر للمنصات",
+=======
+  "description": "P2P Netplay Hub for Emulators — PCSX2, Dolphin, PPSSPP",
+  "homepage": "https://github.com/guest1200assaf-cell/Nexus-Netplay",
+>>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
   "main": "src/main/main.js",
   "author": {
     "name": "Nexus Team",
     "email": "nexus@example.com"
   },
   "scripts": {
+<<<<<<< HEAD
     "dev":            "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
     "vite":           "vite",
     "electron":       "electron .",
@@ -43,5 +49,149 @@
     "concurrently":          "^8.2.2",
     "wait-on":               "^7.2.0",
     "javascript-obfuscator": "^4.1.1"
+=======
+    "dev": "vite",
+    "electron:dev": "cross-env NODE_ENV=development electron .",
+    "dev:all": "concurrently \"npm run dev\" \"wait-on http://localhost:5173 && npm run electron:dev\"",
+    "build:renderer": "vite build",
+    "build:win": "npm run build:renderer && electron-builder --win",
+    "build:mac": "npm run build:renderer && electron-builder --mac",
+    "build:linux": "npm run build:renderer && electron-builder --linux",
+    "build": "npm run build:renderer && electron-builder",
+    "release": "npm run build:renderer && electron-builder --publish always",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "electron-log": "^5.4.3",
+    "electron-updater": "^6.1.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0",
+    "simple-peer": "^9.11.1",
+    "ws": "^8.13.0",
+    "zustand": "^4.4.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.4",
+    "autoprefixer": "^10.4.15",
+    "concurrently": "^8.2.1",
+    "cross-env": "^7.0.3",
+    "electron": "^26.1.0",
+    "electron-builder": "^24.6.4",
+    "electron-icon-builder": "^2.0.1",
+    "postcss": "^8.4.28",
+    "vite": "^4.4.9",
+    "vite-plugin-node-polyfills": "^0.26.0",
+    "wait-on": "^7.0.1"
+  },
+  "build": {
+    "appId": "com.nexus.netplay-hub",
+    "productName": "Nexus Netplay Hub",
+    "copyright": "Copyright © 2025 Nexus Team",
+    "icon": "assets/icons/nexus.png",
+    "asar": true,
+    "asarUnpack": [
+      "node_modules/simple-peer/**",
+      "node_modules/ws/**"
+    ],
+    "files": [
+      "dist/**",
+      "!dist/.vite/**",
+      "src/main/**",
+      "src/shared/**",
+      "assets/**",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "dist/",
+        "to": "dist/",
+        "filter": ["**/*"]
+      }
+    ],
+    "publish": {
+      "provider": "github",
+      "owner": "guest1200assaf-cell",
+      "repo": "Nexus-Netplay",
+      "releaseType": "release"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icons/nexus.ico",
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "installerIcon": "assets/icons/nexus.ico",
+      "uninstallerIcon": "assets/icons/nexus.ico",
+      "installerHeaderIcon": "assets/icons/nexus.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Nexus Netplay",
+      "artifactName": "Nexus-Netplay-Setup-${version}.exe"
+    },
+    "portable": {
+      "artifactName": "Nexus-Netplay-Portable-${version}.exe"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64",
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "assets/icons/nexus.icns",
+      "category": "public.app-category.games",
+      "artifactName": "Nexus-Netplay-${version}-mac.${ext}"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icons/nexus.png",
+      "category": "Game",
+      "artifactName": "Nexus-Netplay-${version}-linux.${ext}"
+    },
+    "directories": {
+      "buildResources": "assets",
+      "output": "release"
+    }
+>>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
   }
 }
