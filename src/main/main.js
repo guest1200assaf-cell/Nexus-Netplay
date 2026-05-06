@@ -15,15 +15,12 @@ function createWindow() {
     minWidth: 1024,
     minHeight: 600,
     frame: false,
-=======
     transparent: false,
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
     backgroundColor: '#07071a',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
-<<<<<<< HEAD
     },
   });
 
@@ -34,7 +31,8 @@ function createWindow() {
       : `file://${path.join(__dirname, '../../dist/index.html')}`
   );
 
-  if (isDev) mainWindow.webContents.openDevTools({ mode: 'detach' });}
+  if (isDev) mainWindow.webContents.openDevTools({ mode: 'detach' });
+}
 
 app.whenReady().then(async () => {
   createWindow();
@@ -48,15 +46,13 @@ app.whenReady().then(async () => {
   ipcMain.on('window:maximize', () =>
     mainWindow.isMaximized() ? mainWindow.unmaximize() : mainWindow.maximize()
   );
-  ipcMain.on('window:close', () => mainWindow.close());});
+  ipcMain.on('window:close', () => mainWindow.close());
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
 });
-<<<<<<< HEAD
-=======
 
 app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
