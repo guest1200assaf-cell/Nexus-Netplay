@@ -42,7 +42,7 @@ jobs:
               repo:       context.repo.repo,
               tag_name:   tag,
               name:       `🎮 Nexus Netplay Hub ${tag}`,
-              body: `## ✨ ما الجديد في ${tag}\n\n> راجع [CHANGELOG.md](CHANGELOG.md) للتفاصيل.\n\n---\n\n### 📥 التحميل\n\n| النظام | الملف |\n|--------|-------|\n| 🪟 Windows (مثبّت) | \`NexusNetplay-${tag}-Setup.exe\` |\n| 🪟 Windows (Portable) | \`NexusNetplay-${tag}-Portable.exe\` |\n| 🐧 Linux | \`NexusNetplay-${tag}.AppImage\` |\n| 🍎 macOS | \`NexusNetplay-${tag}.dmg\` |`,
+              body: `## ✨ ما الجديد في ${tag}\n\n> راجع [CHANGELOG.md](CHANGELOG.md) للتفاصيل.\n\n---\n\n### 📥 التحميل\n\n| النظام | الملف |\n|--------|-------|\n| 🪟 Windows (مثبّت) | \`NexusNetplay-${tag}-Setup.exe\` |\n| 🪟 Windows (Portable) | \`NexusNetplay-${tag}-Portable.exe\` |\n| 🐧 Linux | \`NexusNetplay-${tag}.AppImage\` |`,
               draft:      true,
               prerelease: false,
             });
@@ -137,50 +137,13 @@ jobs:
           draft: true
         env: { GITHUB_TOKEN: '${{ secrets.GH_TOKEN }}' }
 
-  # ══════════════════════════════════════════════════════════
-  # بناء macOS
-  # ══════════════════════════════════════════════════════════
-  build-mac:
-    name: 🍎 macOS
-    needs: create-release
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with: { node-version: '20', cache: 'npm' }
-
-      - run: npm ci
-      - run: npm run build:renderer
-        env: { NODE_ENV: production }
-
-      - name: بناء macOS
-        env:
-          GH_TOKEN: '${{ secrets.GH_TOKEN }}'
-          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
-        run: npx electron-builder --mac --config electron-builder.yml
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: mac-build
-          path: |
-            dist-electron/*.dmg
-            dist-electron/latest-mac.yml
-          retention-days: 7
-
-      - uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            dist-electron/*.dmg
-            dist-electron/latest-mac.yml
-          draft: true
-        env: { GITHUB_TOKEN: '${{ secrets.GH_TOKEN }}' }
 
   # ══════════════════════════════════════════════════════════
   # ملخص نهائي
   # ══════════════════════════════════════════════════════════
   summary:
     name: ✅ الملخص
-    needs: [build-windows, build-linux, build-mac]
+    needs: [build-windows, build-linux]
     runs-on: ubuntu-latest
     if: always()
     steps:
@@ -191,7 +154,7 @@ jobs:
           echo "|--------|---------|" >> $GITHUB_STEP_SUMMARY
           echo "| 🪟 Windows | ${{ needs.build-windows.result == 'success' && '✅ نجح' || '❌ فشل' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| 🐧 Linux   | ${{ needs.build-linux.result   == 'success' && '✅ نجح' || '❌ فشل' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| 🍎 macOS   | ${{ needs.build-mac.result     == 'success' && '✅ نجح' || '❌ فشل' }} |" >> $GITHUB_STEP_SUMMARY
+
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "📌 **الـ Release جاهز كـ Draft — انشره يدوياً بعد المراجعة**" >> $GITHUB_STEP_SUMMARY
           echo "🔗 https://github.com/${{ github.repository }}/releases" >> $GITHUB_STEP_SUMMARY
