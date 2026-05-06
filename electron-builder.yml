@@ -36,7 +36,7 @@ publish:
 # WINDOWS
 # ═══════════════════════════════════════════════════════════
 win:
-  icon: assets/icons/icon.ico          # 256x256 ICO
+  icon: assets/icons/nexus.ico          # 256x256 ICO
   artifactName: "${productName}-Setup-${version}.${ext}"
   requestedExecutionLevel: asInvoker   # لا يطلب Admin إلا إذا لزم
 
@@ -58,9 +58,9 @@ nsis:
   oneClick: false                      # يُظهر wizard التثبيت
   allowToChangeInstallationDirectory: true
   allowElevation: true
-  installerIcon: assets/icons/icon.ico
-  uninstallerIcon: assets/icons/icon.ico
-  installerHeaderIcon: assets/icons/icon.ico
+  installerIcon: assets/icons/nexus.ico
+  uninstallerIcon: assets/icons/nexus.ico
+  installerHeaderIcon: assets/icons/nexus.ico
   createDesktopShortcut: always
   createStartMenuShortcut: true
   shortcutName: "Nexus Netplay Hub"
@@ -71,7 +71,7 @@ nsis:
 # LINUX
 # ═══════════════════════════════════════════════════════════
 linux:
-  icon: assets/icons/               # مجلد يحتوي على أحجام مختلفة
+  icon: assets/icons/nexus.png               # مجلد يحتوي على أحجام مختلفة
   category: Game
   artifactName: "${productName}-${version}.${ext}"
   maintainer: "Nexus Team <nexus@example.com>"
@@ -89,7 +89,7 @@ linux:
 # macOS
 # ═══════════════════════════════════════════════════════════
 mac:
-  icon: assets/icons/icon.icns      # ICNS format
+  icon: assets/icons/nexus.icns      # ICNS format
   category: public.app-category.games
   hardenedRuntime: true             # مطلوب لـ Notarization
   gatekeeperAssess: false
