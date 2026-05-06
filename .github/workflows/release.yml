@@ -1,0 +1,197 @@
+# .github/workflows/release.yml
+name: 🚀 Build & Release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+
+  # ══════════════════════════════════════════════════════════
+  # إنشاء Draft Release فارغ أولاً
+  # ══════════════════════════════════════════════════════════
+  create-release:
+    name: 📋 إنشاء Release
+    runs-on: ubuntu-latest
+    outputs:
+      release_id:  ${{ steps.create.outputs.result }}
+      upload_url:  ${{ steps.get_url.outputs.upload_url }}
+      version:     ${{ steps.version.outputs.VERSION }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+
+      - name: استخراج رقم الإصدار
+        id: version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: إنشاء Draft Release
+        id: create
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const tag = '${{ steps.version.outputs.VERSION }}';
+            const { data } = await github.rest.repos.createRelease({
+              owner:      context.repo.owner,
+              repo:       context.repo.repo,
+              tag_name:   tag,
+              name:       `🎮 Nexus Netplay Hub ${tag}`,
+              body: `## ✨ ما الجديد في ${tag}\n\n> راجع [CHANGELOG.md](CHANGELOG.md) للتفاصيل.\n\n---\n\n### 📥 التحميل\n\n| النظام | الملف |\n|--------|-------|\n| 🪟 Windows (مثبّت) | \`NexusNetplay-${tag}-Setup.exe\` |\n| 🪟 Windows (Portable) | \`NexusNetplay-${tag}-Portable.exe\` |\n| 🐧 Linux | \`NexusNetplay-${tag}.AppImage\` |\n| 🍎 macOS | \`NexusNetplay-${tag}.dmg\` |`,
+              draft:      true,
+              prerelease: false,
+            });
+            return data.id;
+
+      - name: الحصول على Upload URL
+        id: get_url
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data } = await github.rest.repos.getRelease({
+              owner:      context.repo.owner,
+              repo:       context.repo.repo,
+              release_id: ${{ steps.create.outputs.result }},
+            });
+            core.setOutput('upload_url', data.upload_url);
+
+  # ══════════════════════════════════════════════════════════
+  # بناء Windows
+  # ══════════════════════════════════════════════════════════
+  build-windows:
+    name: 🪟 Windows
+    needs: create-release
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20', cache: 'npm' }
+
+      - run: npm ci
+      - run: npm run build:renderer
+        env: { NODE_ENV: production }
+
+      - name: بناء Windows
+        env: { GH_TOKEN: '${{ secrets.GH_TOKEN }}' }
+        run: npx electron-builder --win --config electron-builder.yml
+
+      - name: رفع الملفات
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-build
+          path: |
+            dist-electron/*.exe
+            dist-electron/latest.yml
+          retention-days: 7
+
+      - name: رفع على Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist-electron/*.exe
+            dist-electron/latest.yml
+          draft: true
+        env: { GITHUB_TOKEN: '${{ secrets.GH_TOKEN }}' }
+
+  # ══════════════════════════════════════════════════════════
+  # بناء Linux
+  # ══════════════════════════════════════════════════════════
+  build-linux:
+    name: 🐧 Linux
+    needs: create-release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20', cache: 'npm' }
+
+      - run: sudo apt-get install -y rpm fakeroot
+      - run: npm ci
+      - run: npm run build:renderer
+        env: { NODE_ENV: production }
+
+      - name: بناء Linux
+        env: { GH_TOKEN: '${{ secrets.GH_TOKEN }}' }
+        run: npx electron-builder --linux --config electron-builder.yml
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux-build
+          path: |
+            dist-electron/*.AppImage
+            dist-electron/*.deb
+            dist-electron/latest-linux.yml
+          retention-days: 7
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist-electron/*.AppImage
+            dist-electron/*.deb
+            dist-electron/latest-linux.yml
+          draft: true
+        env: { GITHUB_TOKEN: '${{ secrets.GH_TOKEN }}' }
+
+  # ══════════════════════════════════════════════════════════
+  # بناء macOS
+  # ══════════════════════════════════════════════════════════
+  build-mac:
+    name: 🍎 macOS
+    needs: create-release
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20', cache: 'npm' }
+
+      - run: npm ci
+      - run: npm run build:renderer
+        env: { NODE_ENV: production }
+
+      - name: بناء macOS
+        env:
+          GH_TOKEN: '${{ secrets.GH_TOKEN }}'
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+        run: npx electron-builder --mac --config electron-builder.yml
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mac-build
+          path: |
+            dist-electron/*.dmg
+            dist-electron/latest-mac.yml
+          retention-days: 7
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist-electron/*.dmg
+            dist-electron/latest-mac.yml
+          draft: true
+        env: { GITHUB_TOKEN: '${{ secrets.GH_TOKEN }}' }
+
+  # ══════════════════════════════════════════════════════════
+  # ملخص نهائي
+  # ══════════════════════════════════════════════════════════
+  summary:
+    name: ✅ الملخص
+    needs: [build-windows, build-linux, build-mac]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: كتابة الملخص
+        run: |
+          echo "## 🎮 Nexus Netplay Hub — Build Results" >> $GITHUB_STEP_SUMMARY
+          echo "| المنصة | النتيجة |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|---------|" >> $GITHUB_STEP_SUMMARY
+          echo "| 🪟 Windows | ${{ needs.build-windows.result == 'success' && '✅ نجح' || '❌ فشل' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🐧 Linux   | ${{ needs.build-linux.result   == 'success' && '✅ نجح' || '❌ فشل' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🍎 macOS   | ${{ needs.build-mac.result     == 'success' && '✅ نجح' || '❌ فشل' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📌 **الـ Release جاهز كـ Draft — انشره يدوياً بعد المراجعة**" >> $GITHUB_STEP_SUMMARY
+          echo "🔗 https://github.com/${{ github.repository }}/releases" >> $GITHUB_STEP_SUMMARY

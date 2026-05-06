@@ -1,0 +1,68 @@
+name: 🐛 تقرير خطأ
+description: ساعدنا في إصلاح خطأ
+title: "[BUG] "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: "شكراً لوقتك! يرجى ملء التفاصيل أدناه."
+
+  - type: textarea
+    id: description
+    attributes:
+      label: وصف الخطأ
+      description: شرح واضح لما يحدث
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: خطوات إعادة الإنتاج
+      value: |
+        1. افتح التطبيق
+        2. اختر محاكي...
+        3. اضغط...
+        4. شاهد الخطأ
+    validations:
+      required: true
+
+  - type: dropdown
+    id: emulator
+    attributes:
+      label: المحاكي
+      options:
+        - PCSX2
+        - Dolphin
+        - PPSSPP
+        - لا علاقة بالمحاكي
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: نظام التشغيل
+      options:
+        - Windows 11
+        - Windows 10
+        - Ubuntu
+        - macOS
+        - أخرى
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: إصدار التطبيق
+      placeholder: v1.0.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: سجلات الأخطاء (Logs)
+      description: من DevTools Console أو ملف electron-log
+      render: shell

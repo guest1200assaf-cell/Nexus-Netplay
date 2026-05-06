@@ -1,0 +1,36 @@
+# .github/workflows/ci.yml
+# يعمل عند كل push أو Pull Request على main
+name: 🔍 CI — Lint & Build Check
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check:
+    name: ✅ فحص الكود
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: تثبيت المكتبات
+        run: npm ci
+
+      - name: بناء React (Vite)
+        run: npm run build:renderer
+        env:
+          NODE_ENV: production
+
+      - name: التحقق من ملفات Main Process
+        run: node --check src/main/main.js src/main/updater.js
+
+      - name: ✅ اكتمل الفحص
+        run: echo "الكود سليم وقابل للبناء ✅"

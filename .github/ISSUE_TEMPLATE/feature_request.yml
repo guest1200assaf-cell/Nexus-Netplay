@@ -1,0 +1,28 @@
+name: ✨ طلب ميزة جديدة
+description: اقترح فكرة لتحسين Nexus
+title: "[FEATURE] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: ما المشكلة التي تحلّها هذه الميزة؟
+      placeholder: "مثال: صعوبة معرفة ping اللاعب الآخر..."
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: الحل المقترح
+      placeholder: "مثال: إضافة مؤشر ping في الـ Lobby..."
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: الفئة
+      options:
+        - دعم محاكٍ جديد
+        - تحسين الشبكة P2P
+        - تحسين الواجهة
+        - ميزة صوتية
+        - أداء
+        - أخرى
