@@ -1,113 +1,66 @@
-# electron-builder.yml — إعدادات التحزيم الكاملة
-
 appId: com.nexus.netplay.hub
 productName: "Nexus Netplay Hub"
 copyright: "© 2025 Nexus Team"
 
-# ── مجلدات البناء ─────────────────────────────────────────
 directories:
-  output: dist-electron        # مجلد الإخراج النهائي
-  buildResources: assets       # مجلد الأيقونات والموارد
+  output: dist-electron
+  buildResources: assets
 
-# ── الملفات التي تُضمَّن في التطبيق ─────────────────────
 files:
-  - dist/**/*                  # React build (Vite output)
-  - src/main/**/*              # Electron main process
+  - dist/**/*
+  - src/main/**/*
   - package.json
-  - "!node_modules/**/*"       # استثناء node_modules الكاملة
-  - "!src/renderer/**/*"       # استثناء مصدر React (نسخة build فقط)
-  - "!**/*.map"                # استثناء source maps
-  - "!scripts/**/*"            # استثناء سكريبتات البناء
+  - "!node_modules/**/*"
+  - "!src/renderer/**/*"
+  - "!**/*.map"
+  - "!scripts/**/*"
 
-# ── الـ ASAR: تحزيم الكود في ملف واحد مشفر ───────────────
 asar: true
 asarUnpack:
-  - "node_modules/simple-peer/**"   # بعض المكتبات تحتاج unpack
+  - "node_modules/simple-peer/**"
 
-# ── معلومات التحديث التلقائي (GitHub Releases) ────────────
 publish:
   provider: github
-  owner: YOUR_GITHUB_USERNAME          # ← غيّر هذا
-  repo: nexus-netplay-hub              # ← غيّر هذا
+  owner: guest1200assaf-cell
+  repo: Nexus-Netplay
   releaseType: release
   private: false
 
-# ═══════════════════════════════════════════════════════════
-# WINDOWS
-# ═══════════════════════════════════════════════════════════
 win:
-  icon: assets/icons/icon.ico          # 256x256 ICO
+  icon: assets/icons/icons/icon.ico
   artifactName: "${productName}-Setup-${version}.${ext}"
-  requestedExecutionLevel: asInvoker   # لا يطلب Admin إلا إذا لزم
-
+  requestedExecutionLevel: asInvoker
   target:
-    # ① مثبّت NSIS احترافي
     - target: nsis
       arch: [x64, ia32]
-
-    # ② نسخة Portable (exe مفرد بدون تثبيت)
     - target: portable
       arch: [x64]
-
-    # ③ أرشيف ZIP للتوزيع اليدوي
     - target: zip
       arch: [x64]
 
-# إعدادات مثبّت NSIS
 nsis:
-  oneClick: false                      # يُظهر wizard التثبيت
+  oneClick: false
   allowToChangeInstallationDirectory: true
   allowElevation: true
-  installerIcon: assets/icons/icon.ico
-  uninstallerIcon: assets/icons/icon.ico
-  installerHeaderIcon: assets/icons/icon.ico
+  installerIcon: assets/icons/icons/icon.ico
+  uninstallerIcon: assets/icons/icons/icon.ico
+  installerHeaderIcon: assets/icons/icons/icon.ico
   createDesktopShortcut: always
   createStartMenuShortcut: true
   shortcutName: "Nexus Netplay Hub"
-  include: assets/installer/license.nsh   # ملف NSIS مخصص (اختياري)
-  license: LICENSE.txt                    # اتفاقية الترخيص
+  license: LICENSE
 
-# ═══════════════════════════════════════════════════════════
-# LINUX
-# ═══════════════════════════════════════════════════════════
 linux:
-  icon: assets/icons/               # مجلد يحتوي على أحجام مختلفة
+  icon: assets/icons/icons/
   category: Game
   artifactName: "${productName}-${version}.${ext}"
   maintainer: "Nexus Team <nexus@example.com>"
   description: "نظام المحاكاة الشبكي العابر للمنصات"
-
   target:
-    - target: AppImage              # ملف واحد يعمل على أي توزيعة
+    - target: AppImage
       arch: [x64]
-    - target: deb                   # Debian/Ubuntu
-      arch: [x64]
-    - target: rpm                   # Fedora/RHEL
+    - target: deb
       arch: [x64]
 
-# ═══════════════════════════════════════════════════════════
-# macOS
-# ═══════════════════════════════════════════════════════════
-mac:
-  icon: assets/icons/icon.icns      # ICNS format
-  category: public.app-category.games
-  hardenedRuntime: true             # مطلوب لـ Notarization
-  gatekeeperAssess: false
-  artifactName: "${productName}-${version}.${ext}"
-
-  target:
-    - target: dmg                   # مثبّت DMG
-      arch: [x64, arm64]            # Intel + Apple Silicon
-    - target: zip
-      arch: [x64, arm64]
-
-dmg:
-  sign: false                       # للتوزيع غير الرسمي
-  title: "Nexus Netplay Hub ${version}"
-  iconSize: 100
-
-# ═══════════════════════════════════════════════════════════
-# إعدادات الأداء
-# ═══════════════════════════════════════════════════════════
-compression: maximum                 # أقصى ضغط
-removePackageScripts: true          # حذف scripts من package.json المُحزَّم
+compression: maximum
+removePackageScripts: true
