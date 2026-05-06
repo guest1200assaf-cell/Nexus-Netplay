@@ -1,25 +1,24 @@
-<<<<<<< HEAD
 // src/main/updater.js
-// نظام التحديث التلقائي — يعمل مع GitHub Releases
+// ظ†ط¸ط§ظ… ط§ظ„طھط­ط¯ظٹط« ط§ظ„طھظ„ظ‚ط§ط¦ظٹ â€” ظٹط¹ظ…ظ„ ظ…ط¹ GitHub Releases
 
 const { autoUpdater } = require('electron-updater');
 const log             = require('electron-log');
 
-// ── توجيه السجلّات إلى ملف ────────────────────────────────
+// â”€â”€ طھظˆط¬ظٹظ‡ ط§ظ„ط³ط¬ظ„ظ‘ط§طھ ط¥ظ„ظ‰ ظ…ظ„ظپ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 log.transports.file.level = 'info';
 autoUpdater.logger = log;
 
-// ── إعدادات السلوك ────────────────────────────────────────
-autoUpdater.autoDownload    = true;   // تحميل تلقائي في الخلفية
-autoUpdater.autoInstallOnAppQuit = true; // تثبيت عند الإغلاق
+// â”€â”€ ط¥ط¹ط¯ط§ط¯ط§طھ ط§ظ„ط³ظ„ظˆظƒ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+autoUpdater.autoDownload    = true;   // طھط­ظ…ظٹظ„ طھظ„ظ‚ط§ط¦ظٹ ظپظٹ ط§ظ„ط®ظ„ظپظٹط©
+autoUpdater.autoInstallOnAppQuit = true; // طھط«ط¨ظٹطھ ط¹ظ†ط¯ ط§ظ„ط¥ط؛ظ„ط§ظ‚
 
 /**
- * يهيئ نظام التحديث ويربطه بنافذة Electron
- * @param {BrowserWindow} mainWindow - النافذة الرئيسية للتطبيق
+ * ظٹظ‡ظٹط¦ ظ†ط¸ط§ظ… ط§ظ„طھط­ط¯ظٹط« ظˆظٹط±ط¨ط·ظ‡ ط¨ظ†ط§ظپط°ط© Electron
+ * @param {BrowserWindow} mainWindow - ط§ظ„ظ†ط§ظپط°ط© ط§ظ„ط±ط¦ظٹط³ظٹط© ظ„ظ„طھط·ط¨ظٹظ‚
  */
 function setupAutoUpdater(mainWindow) {
 
-  // دالة مساعدة: إرسال حدث للـ Renderer
+  // ط¯ط§ظ„ط© ظ…ط³ط§ط¹ط¯ط©: ط¥ط±ط³ط§ظ„ ط­ط¯ط« ظ„ظ„ظ€ Renderer
   const send = (event, data = {}) => {
     if (mainWindow && !mainWindow.isDestroyed()) {
       mainWindow.webContents.send(`updater:${event}`, data);
@@ -27,14 +26,14 @@ function setupAutoUpdater(mainWindow) {
     log.info(`[Updater] ${event}`, data);
   };
 
-  // ── الأحداث ───────────────────────────────────────────────
+  // â”€â”€ ط§ظ„ط£ط­ط¯ط§ط« â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
-  // ① فحص التحديثات بدأ
+  // â‘  ظپط­طµ ط§ظ„طھط­ط¯ظٹط«ط§طھ ط¨ط¯ط£
   autoUpdater.on('checking-for-update', () => {
     send('checking');
   });
 
-  // ② يوجد تحديث جديد → يبدأ التحميل التلقائي
+  // â‘، ظٹظˆط¬ط¯ طھط­ط¯ظٹط« ط¬ط¯ظٹط¯ â†’ ظٹط¨ط¯ط£ ط§ظ„طھط­ظ…ظٹظ„ ط§ظ„طھظ„ظ‚ط§ط¦ظٹ
   autoUpdater.on('update-available', (info) => {
     send('available', {
       version:     info.version,
@@ -43,12 +42,12 @@ function setupAutoUpdater(mainWindow) {
     });
   });
 
-  // ③ لا يوجد تحديث → النسخة حديثة
+  // â‘¢ ظ„ط§ ظٹظˆط¬ط¯ طھط­ط¯ظٹط« â†’ ط§ظ„ظ†ط³ط®ط© ط­ط¯ظٹط«ط©
   autoUpdater.on('update-not-available', (info) => {
     send('not-available', { currentVersion: info.version });
   });
 
-  // ④ تقدّم التحميل
+  // â‘£ طھظ‚ط¯ظ‘ظ… ط§ظ„طھط­ظ…ظٹظ„
   autoUpdater.on('download-progress', (progress) => {
     send('download-progress', {
       percent:       Math.round(progress.percent),
@@ -58,26 +57,26 @@ function setupAutoUpdater(mainWindow) {
     });
   });
 
-  // ⑤ اكتمل التحميل → جاهز للتثبيت
+  // â‘¤ ط§ظƒطھظ…ظ„ ط§ظ„طھط­ظ…ظٹظ„ â†’ ط¬ط§ظ‡ط² ظ„ظ„طھط«ط¨ظٹطھ
   autoUpdater.on('update-downloaded', (info) => {
     send('downloaded', {
       version:      info.version,
       releaseNotes: info.releaseNotes,
     });
-    // يُثبَّت تلقائياً عند الإغلاق (autoInstallOnAppQuit = true)
-    // أو يمكنك إظهار dialog للمستخدم للتثبيت الآن
+    // ظٹظڈط«ط¨ظژظ‘طھ طھظ„ظ‚ط§ط¦ظٹط§ظ‹ ط¹ظ†ط¯ ط§ظ„ط¥ط؛ظ„ط§ظ‚ (autoInstallOnAppQuit = true)
+    // ط£ظˆ ظٹظ…ظƒظ†ظƒ ط¥ط¸ظ‡ط§ط± dialog ظ„ظ„ظ…ط³طھط®ط¯ظ… ظ„ظ„طھط«ط¨ظٹطھ ط§ظ„ط¢ظ†
   });
 
-  // ⑥ خطأ
+  // â‘¥ ط®ط·ط£
   autoUpdater.on('error', (err) => {
     send('error', { message: err.message });
     log.error('[Updater] Error:', err);
   });
 
-  // ── IPC: طلبات من الـ Renderer ───────────────────────────
+  // â”€â”€ IPC: ط·ظ„ط¨ط§طھ ظ…ظ† ط§ظ„ظ€ Renderer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const { ipcMain } = require('electron');
 
-  // المستخدم يريد فحص يدوي
+  // ط§ظ„ظ…ط³طھط®ط¯ظ… ظٹط±ظٹط¯ ظپط­طµ ظٹط¯ظˆظٹ
   ipcMain.handle('updater:check-now', async () => {
     try {
       return await autoUpdater.checkForUpdates();
@@ -87,14 +86,14 @@ function setupAutoUpdater(mainWindow) {
     }
   });
 
-  // المستخدم يريد التثبيت الآن (بدون انتظار الإغلاق)
+  // ط§ظ„ظ…ط³طھط®ط¯ظ… ظٹط±ظٹط¯ ط§ظ„طھط«ط¨ظٹطھ ط§ظ„ط¢ظ† (ط¨ط¯ظˆظ† ط§ظ†طھط¸ط§ط± ط§ظ„ط¥ط؛ظ„ط§ظ‚)
   ipcMain.on('updater:install-now', () => {
     autoUpdater.quitAndInstall(false, true);
-    // false = لا تُصدر isSilent، true = forceRunAfter
+    // false = ظ„ط§ طھظڈطµط¯ط± isSilentطŒ true = forceRunAfter
   });
 
-  // ── بدء الفحص ─────────────────────────────────────────────
-  // انتظر 5 ثوانٍ بعد فتح التطبيق قبل الفحص (لا يُبطئ الفتح)
+  // â”€â”€ ط¨ط¯ط، ط§ظ„ظپط­طµ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ط§ظ†طھط¸ط± 5 ط«ظˆط§ظ†ظچ ط¨ط¹ط¯ ظپطھط­ ط§ظ„طھط·ط¨ظٹظ‚ ظ‚ط¨ظ„ ط§ظ„ظپط­طµ (ظ„ط§ ظٹظڈط¨ط·ط¦ ط§ظ„ظپطھط­)
   setTimeout(() => {
     autoUpdater.checkForUpdatesAndNotify().catch(err => {
       log.warn('[Updater] Check failed (probably no internet):', err.message);
@@ -102,7 +101,7 @@ function setupAutoUpdater(mainWindow) {
   }, 5000);
 }
 
-// ── دالة مساعدة: تنسيق البايتات ─────────────────────────
+// â”€â”€ ط¯ط§ظ„ط© ظ…ط³ط§ط¹ط¯ط©: طھظ†ط³ظٹظ‚ ط§ظ„ط¨ط§ظٹطھط§طھ â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 function formatBytes(bytes) {
   if (bytes === 0) return '0 B';
   const k = 1024;
@@ -112,99 +111,3 @@ function formatBytes(bytes) {
 }
 
 module.exports = { setupAutoUpdater };
-=======
-// ─── Auto-Updater — GitHub Releases ─────────────────────────────────────────
-const { autoUpdater }  = require('electron-updater');
-const { app, dialog, BrowserWindow } = require('electron');
-const log = require('electron-log');
-
-// ── Logging ───────────────────────────────────────────────────────────────────
-autoUpdater.logger = log;
-autoUpdater.logger.transports.file.level = 'info';
-log.info('App version:', app.getVersion());
-
-// ── Configuration ─────────────────────────────────────────────────────────────
-autoUpdater.autoDownload    = true;   // Download silently in background
-autoUpdater.autoInstallOnAppQuit = true; // Install when user quits
-
-/**
- * Call this from app.whenReady() in main.js after the window is created.
- * Pass mainWindow so we can send progress events to the renderer.
- */
-function initUpdater(mainWindow) {
-  const isDev = process.env.NODE_ENV === 'development' || !app.isPackaged;
-  if (isDev) {
-    log.info('[Updater] Skipping update check in development mode');
-    return;
-  }
-
-  // ── Event handlers ──────────────────────────────────────────────────────
-  autoUpdater.on('checking-for-update', () => {
-    log.info('[Updater] Checking for update…');
-    send('updater:checking');
-  });
-
-  autoUpdater.on('update-available', (info) => {
-    log.info('[Updater] Update available:', info.version);
-    send('updater:available', { version: info.version, releaseNotes: info.releaseNotes });
-  });
-
-  autoUpdater.on('update-not-available', () => {
-    log.info('[Updater] Up to date.');
-    send('updater:up-to-date');
-  });
-
-  autoUpdater.on('download-progress', (progress) => {
-    const msg = `Downloading… ${Math.round(progress.percent)}% (${formatBytes(progress.bytesPerSecond)}/s)`;
-    log.info('[Updater]', msg);
-    send('updater:progress', {
-      percent:  Math.round(progress.percent),
-      speed:    formatBytes(progress.bytesPerSecond),
-      transferred: formatBytes(progress.transferred),
-      total:    formatBytes(progress.total),
-    });
-  });
-
-  autoUpdater.on('update-downloaded', (info) => {
-    log.info('[Updater] Update downloaded:', info.version);
-    send('updater:downloaded', { version: info.version });
-
-    // Ask user to restart now or later
-    dialog.showMessageBox(mainWindow, {
-      type:    'info',
-      title:   'تحديث جاهز للتثبيت',
-      message: `الإصدار ${info.version} جاهز. هل تريد إعادة التشغيل الآن؟`,
-      buttons: ['إعادة تشغيل الآن', 'لاحقاً'],
-      defaultId: 0,
-      cancelId:  1,
-    }).then(({ response }) => {
-      if (response === 0) autoUpdater.quitAndInstall(false, true);
-    });
-  });
-
-  autoUpdater.on('error', (err) => {
-    log.error('[Updater] Error:', err.message);
-    send('updater:error', { message: err.message });
-  });
-
-  // ── Check after 3s delay (let window settle) ──────────────────────────
-  setTimeout(() => autoUpdater.checkForUpdates(), 3000);
-
-  // Helper: send event to renderer if window exists
-  function send(channel, data = {}) {
-    try {
-      if (mainWindow && !mainWindow.isDestroyed()) {
-        mainWindow.webContents.send(channel, data);
-      }
-    } catch (_) {}
-  }
-}
-
-function formatBytes(bytes) {
-  if (bytes < 1024)       return `${bytes} B`;
-  if (bytes < 1048576)    return `${(bytes / 1024).toFixed(1)} KB`;
-  return `${(bytes / 1048576).toFixed(1)} MB`;
-}
-
-module.exports = { initUpdater };
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e

@@ -1,85 +1,68 @@
-<<<<<<< HEAD
-# 🤝 دليل المساهمة في Nexus Netplay Hub
+# ًں¤‌ ط¯ظ„ظٹظ„ ط§ظ„ظ…ط³ط§ظ‡ظ…ط© ظپظٹ Nexus Netplay Hub
 
-أهلاً! سعداء بمساهمتك في المشروع. هذا الدليل يشرح كيفية المشاركة.
-
----
-
-## 📋 أين تبدأ؟
-
-### المساهمات المرحّب بها:
-- 🐛 **إصلاح أخطاء** — ابحث في [Issues](../../issues?q=is%3Aissue+is%3Aopen+label%3Abug)
-- 🎮 **دعم محاكيات جديدة** — RetroArch, RPCS3, Xenia, Cemu...
-- 🌐 **تحسين الشبكة** — NAT traversal، TURN servers، اتصال عبر Relay
-- 🎨 **تحسين الواجهة** — أنيميشن، ثيمات، إمكانية الوصول
-- 📖 **التوثيق** — ترجمة، شروحات، فيديوهات
+ط£ظ‡ظ„ط§ظ‹! ط³ط¹ط¯ط§ط، ط¨ظ…ط³ط§ظ‡ظ…طھظƒ ظپظٹ ط§ظ„ظ…ط´ط±ظˆط¹. ظ‡ط°ط§ ط§ظ„ط¯ظ„ظٹظ„ ظٹط´ط±ط­ ظƒظٹظپظٹط© ط§ظ„ظ…ط´ط§ط±ظƒط©.
 
 ---
 
-## 🛠 إعداد بيئة التطوير
+## ًں“‹ ط£ظٹظ† طھط¨ط¯ط£طں
+
+### ط§ظ„ظ…ط³ط§ظ‡ظ…ط§طھ ط§ظ„ظ…ط±ط­ظ‘ط¨ ط¨ظ‡ط§:
+- ًںگ› **ط¥طµظ„ط§ط­ ط£ط®ط·ط§ط،** â€” ط§ط¨ط­ط« ظپظٹ [Issues](../../issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+- ًںژ® **ط¯ط¹ظ… ظ…ط­ط§ظƒظٹط§طھ ط¬ط¯ظٹط¯ط©** â€” RetroArch, RPCS3, Xenia, Cemu...
+- ًںŒگ **طھط­ط³ظٹظ† ط§ظ„ط´ط¨ظƒط©** â€” NAT traversalطŒ TURN serversطŒ ط§طھطµط§ظ„ ط¹ط¨ط± Relay
+- ًںژ¨ **طھط­ط³ظٹظ† ط§ظ„ظˆط§ط¬ظ‡ط©** â€” ط£ظ†ظٹظ…ظٹط´ظ†طŒ ط«ظٹظ…ط§طھطŒ ط¥ظ…ظƒط§ظ†ظٹط© ط§ظ„ظˆطµظˆظ„
+- ًں“– **ط§ظ„طھظˆط«ظٹظ‚** â€” طھط±ط¬ظ…ط©طŒ ط´ط±ظˆط­ط§طھطŒ ظپظٹط¯ظٹظˆظ‡ط§طھ
+
+---
+
+## ًں›  ط¥ط¹ط¯ط§ط¯ ط¨ظٹط¦ط© ط§ظ„طھط·ظˆظٹط±
 
 ```bash
-# 1. Fork الريبو من GitHub ثم استنسخه
+# 1. Fork ط§ظ„ط±ظٹط¨ظˆ ظ…ظ† GitHub ط«ظ… ط§ط³طھظ†ط³ط®ظ‡
 git clone https://github.com/YOUR_USERNAME/nexus-netplay-hub.git
 cd nexus-netplay-hub
 
-# 2. أضف الريبو الأصلي كـ upstream
+# 2. ط£ط¶ظپ ط§ظ„ط±ظٹط¨ظˆ ط§ظ„ط£طµظ„ظٹ ظƒظ€ upstream
 git remote add upstream https://github.com/ORIGINAL_OWNER/nexus-netplay-hub.git
 
-# 3. ثبّت المكتبات
+# 3. ط«ط¨ظ‘طھ ط§ظ„ظ…ظƒطھط¨ط§طھ
 npm install
 
-# 4. أنشئ branch جديد لتعديلاتك
+# 4. ط£ظ†ط´ط¦ branch ط¬ط¯ظٹط¯ ظ„طھط¹ط¯ظٹظ„ط§طھظƒ
 git checkout -b feature/add-rpcs3-support
-# أو:
+# ط£ظˆ:
 git checkout -b fix/upnp-timeout-bug
 
-# 5. شغّل التطبيق
+# 5. ط´ط؛ظ‘ظ„ ط§ظ„طھط·ط¨ظٹظ‚
 npm run dev
-=======
-# 🤝 دليل المساهمة — Nexus Netplay Hub
-
-شكراً لاهتمامك بالمساهمة في Nexus Netplay Hub! هذا الدليل يشرح كيف تضيف ميزات جديدة أو تدعم محاكيات إضافية.
-
----
-
-## 🚀 إعداد بيئة التطوير
-
-```bash
-git clone https://github.com/guest1200assaf-cell/Nexus-Netplay.git
-cd Nexus-Netplay
-npm install
-npm run dev:all
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
 ```
 
 ---
 
-<<<<<<< HEAD
-## 🎮 كيف تضيف دعم محاكٍ جديد؟
+## ًںژ® ظƒظٹظپ طھط¶ظٹظپ ط¯ط¹ظ… ظ…ط­ط§ظƒظچ ط¬ط¯ظٹط¯طں
 
-### الخطوات:
+### ط§ظ„ط®ط·ظˆط§طھ:
 
-**1. أنشئ ملف Config Injector جديد:**
+**1. ط£ظ†ط´ط¦ ظ…ظ„ظپ Config Injector ط¬ط¯ظٹط¯:**
 ```bash
-# مثال: إضافة RPCS3
+# ظ…ط«ط§ظ„: ط¥ط¶ط§ظپط© RPCS3
 touch src/main/emulators/rpcs3.config.js
 ```
 
-**2. اتبع نفس الهيكل الموجود:**
+**2. ط§طھط¨ط¹ ظ†ظپط³ ط§ظ„ظ‡ظٹظƒظ„ ط§ظ„ظ…ظˆط¬ظˆط¯:**
 ```javascript
 // src/main/emulators/rpcs3.config.js
 
 function getRPCS3ConfigPath() {
-  // حدد مسار ملف الإعدادات لكل منصة
+  // ط­ط¯ط¯ ظ…ط³ط§ط± ظ…ظ„ظپ ط§ظ„ط¥ط¹ط¯ط§ط¯ط§طھ ظ„ظƒظ„ ظ…ظ†طµط©
 }
 
 function injectRPCS3NetworkConfig({ hostIP, port, isHost }) {
-  // اقرأ الملف → عدّل القيم → احفظ نسخة احتياطية → اكتب
+  // ط§ظ‚ط±ط£ ط§ظ„ظ…ظ„ظپ â†’ ط¹ط¯ظ‘ظ„ ط§ظ„ظ‚ظٹظ… â†’ ط§ط­ظپط¸ ظ†ط³ط®ط© ط§ط­طھظٹط§ط·ظٹط© â†’ ط§ظƒطھط¨
 }
 
 function restoreRPCS3Config() {
-  // استعادة النسخة الاحتياطية
+  // ط§ط³طھط¹ط§ط¯ط© ط§ظ„ظ†ط³ط®ط© ط§ظ„ط§ط­طھظٹط§ط·ظٹط©
 }
 
 function launchRPCS3(executablePath, gameFile, onExit) {
@@ -89,7 +72,7 @@ function launchRPCS3(executablePath, gameFile, onExit) {
 module.exports = { injectRPCS3NetworkConfig, restoreRPCS3Config, launchRPCS3 };
 ```
 
-**3. سجّله في IPC:**
+**3. ط³ط¬ظ‘ظ„ظ‡ ظپظٹ IPC:**
 ```javascript
 // src/main/ipc/emulator.ipc.js
 const { injectRPCS3NetworkConfig, launchRPCS3 } = require('../emulators/rpcs3.config');
@@ -97,149 +80,82 @@ const { injectRPCS3NetworkConfig, launchRPCS3 } = require('../emulators/rpcs3.co
 ipcMain.handle('emulator:launch-rpcs3', async (event, config) => { ... });
 ```
 
-**4. أضفه في الواجهة:**
+**4. ط£ط¶ظپظ‡ ظپظٹ ط§ظ„ظˆط§ط¬ظ‡ط©:**
 ```javascript
 // src/renderer/pages/Home.jsx
 const EMULATORS = [
-  // ... المحاكيات الموجودة
-  { id: 'rpcs3', label: 'PlayStation 3', icon: '🎮', color: '#1a1a6e', sub: 'RPCS3' },
+  // ... ط§ظ„ظ…ط­ط§ظƒظٹط§طھ ط§ظ„ظ…ظˆط¬ظˆط¯ط©
+  { id: 'rpcs3', label: 'PlayStation 3', icon: 'ًںژ®', color: '#1a1a6e', sub: 'RPCS3' },
 ];
 ```
 
-**5. اختبره وأرسل Pull Request!**
+**5. ط§ط®طھط¨ط±ظ‡ ظˆط£ط±ط³ظ„ Pull Request!**
 
 ---
 
-## 📐 معايير الكود
+## ًں“گ ظ…ط¹ط§ظٹظٹط± ط§ظ„ظƒظˆط¯
 
 ```javascript
-// ✅ صح: تعليقات عربية للمنطق المهم
+// âœ… طµط­: طھط¹ظ„ظٹظ‚ط§طھ ط¹ط±ط¨ظٹط© ظ„ظ„ظ…ظ†ط·ظ‚ ط§ظ„ظ…ظ‡ظ…
 function injectConfig(config) {
-  // نحفظ نسخة احتياطية قبل أي تعديل
+  // ظ†ط­ظپط¸ ظ†ط³ط®ط© ط§ط­طھظٹط§ط·ظٹط© ظ‚ط¨ظ„ ط£ظٹ طھط¹ط¯ظٹظ„
   backupOriginal(configPath);
   // ...
 }
 
-// ❌ خطأ: كود بدون تعليقات لمنطق معقد
+// â‌Œ ط®ط·ط£: ظƒظˆط¯ ط¨ط¯ظˆظ† طھط¹ظ„ظٹظ‚ط§طھ ظ„ظ…ظ†ط·ظ‚ ظ…ط¹ظ‚ط¯
 function x(c) { backup(p); modify(c); }
 ```
 
-**القواعد:**
-- استخدم `const` و `let` — لا `var`
-- أضف JSDoc للدوال العامة
-- لا ترفع ملفات `.env` أو مسارات محلية
-- اختبر على Windows قبل الـ PR إن أمكن
+**ط§ظ„ظ‚ظˆط§ط¹ط¯:**
+- ط§ط³طھط®ط¯ظ… `const` ظˆ `let` â€” ظ„ط§ `var`
+- ط£ط¶ظپ JSDoc ظ„ظ„ط¯ظˆط§ظ„ ط§ظ„ط¹ط§ظ…ط©
+- ظ„ط§ طھط±ظپط¹ ظ…ظ„ظپط§طھ `.env` ط£ظˆ ظ…ط³ط§ط±ط§طھ ظ…ط­ظ„ظٹط©
+- ط§ط®طھط¨ط± ط¹ظ„ظ‰ Windows ظ‚ط¨ظ„ ط§ظ„ظ€ PR ط¥ظ† ط£ظ…ظƒظ†
 
 ---
 
-## 🔀 سير العمل (Workflow)
+## ًں”€ ط³ظٹط± ط§ظ„ط¹ظ…ظ„ (Workflow)
 
 ```
-main ──────────────────────────────────────────► (stable)
-  └── dev ────────────────────────────────────► (integration)
-        ├── feature/add-rpcs3-support
-        ├── fix/voice-chat-echo
-        └── ui/ps5-theme-improvements
+main â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–؛ (stable)
+  â””â”€â”€ dev â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–؛ (integration)
+        â”œâ”€â”€ feature/add-rpcs3-support
+        â”œâ”€â”€ fix/voice-chat-echo
+        â””â”€â”€ ui/ps5-theme-improvements
 ```
 
-1. **Fork** → **branch من `dev`** → **كود** → **PR إلى `dev`**
-2. بعد المراجعة، `dev` تُدمج في `main` مع كل Release
+1. **Fork** â†’ **branch ظ…ظ† `dev`** â†’ **ظƒظˆط¯** â†’ **PR ط¥ظ„ظ‰ `dev`**
+2. ط¨ط¹ط¯ ط§ظ„ظ…ط±ط§ط¬ط¹ط©طŒ `dev` طھظڈط¯ظ…ط¬ ظپظٹ `main` ظ…ط¹ ظƒظ„ Release
 
 ---
 
-## 🐛 الإبلاغ عن خطأ
+## ًںگ› ط§ظ„ط¥ط¨ظ„ط§ط؛ ط¹ظ† ط®ط·ط£
 
-افتح Issue جديد واملأ هذا القالب:
+ط§ظپطھط­ Issue ط¬ط¯ظٹط¯ ظˆط§ظ…ظ„ط£ ظ‡ط°ط§ ط§ظ„ظ‚ط§ظ„ط¨:
 
 ```markdown
-**وصف الخطأ:**
-[ماذا يحدث؟]
+**ظˆطµظپ ط§ظ„ط®ط·ط£:**
+[ظ…ط§ط°ط§ ظٹط­ط¯ط«طں]
 
-**خطوات إعادة الإنتاج:**
-1. افتح التطبيق
-2. اختر محاكي PCSX2
-3. اضغط "استضافة غرفة"
-4. [ماذا يحدث]
+**ط®ط·ظˆط§طھ ط¥ط¹ط§ط¯ط© ط§ظ„ط¥ظ†طھط§ط¬:**
+1. ط§ظپطھط­ ط§ظ„طھط·ط¨ظٹظ‚
+2. ط§ط®طھط± ظ…ط­ط§ظƒظٹ PCSX2
+3. ط§ط¶ط؛ط· "ط§ط³طھط¶ط§ظپط© ط؛ط±ظپط©"
+4. [ظ…ط§ط°ط§ ظٹط­ط¯ط«]
 
-**المتوقع:** [ما الذي كان يجب أن يحدث]
-**النظام:** Windows 11 / Ubuntu 24 / macOS 14
-**الإصدار:** v1.2.0
-**الـ Logs:** (من electron-log أو DevTools Console)
+**ط§ظ„ظ…طھظˆظ‚ط¹:** [ظ…ط§ ط§ظ„ط°ظٹ ظƒط§ظ† ظٹط¬ط¨ ط£ظ† ظٹط­ط¯ط«]
+**ط§ظ„ظ†ط¸ط§ظ…:** Windows 11 / Ubuntu 24 / macOS 14
+**ط§ظ„ط¥طµط¯ط§ط±:** v1.2.0
+**ط§ظ„ظ€ Logs:** (ظ…ظ† electron-log ط£ظˆ DevTools Console)
 ```
 
 ---
 
-## 💬 للتواصل
+## ًں’¬ ظ„ظ„طھظˆط§طµظ„
 
-- 🐛 **Issues:** للأخطاء والاقتراحات
-- 💬 **Discussions:** للأسئلة العامة والأفكار
-- 📧 **Email:** nexus@example.com
+- ًںگ› **Issues:** ظ„ظ„ط£ط®ط·ط§ط، ظˆط§ظ„ط§ظ‚طھط±ط§ط­ط§طھ
+- ًں’¬ **Discussions:** ظ„ظ„ط£ط³ط¦ظ„ط© ط§ظ„ط¹ط§ظ…ط© ظˆط§ظ„ط£ظپظƒط§ط±
+- ًں“§ **Email:** nexus@example.com
 
-شكراً لمساهمتك! 🙏🎮
-=======
-## 🎮 إضافة دعم محاكي جديد
-
-### 1. إنشاء ملف Config Injection
-
-```
-src/main/emulators/myemulator.config.js
-```
-
-يجب أن يحتوي على:
-```js
-function injectMyEmulatorNetworkConfig(networkConfig) { ... }
-function restoreMyEmulatorConfig() { ... }
-function launchMyEmulator(executablePath, isoPath, onExit) { ... }
-
-module.exports = { injectMyEmulatorNetworkConfig, restoreMyEmulatorConfig, launchMyEmulator };
-```
-
-### 2. تسجيل IPC Handler
-
-في `src/main/ipc/emulator.ipc.js` أضف:
-```js
-ipcMain.handle('emulator:launch-myemulator', async (event, cfg) => {
-  // inject config + spawn process
-});
-```
-
-### 3. تحديث الـ Store
-
-في `src/renderer/store/nexusStore.js` أضف اسم المحاكي لقائمة `EMULATORS`.
-
-### 4. إضافة GameCard
-
-في `src/renderer/components/ui/GameCard.jsx` أضف معلومات المحاكي الجديد.
-
----
-
-## 🔗 تحسين نظام الغرف (Room System)
-
-الكود الرئيسي في:
-- `src/main/network/signaling.server.js` — منطق الغرف
-- `src/renderer/hooks/useP2P.js` — اتصال P2P
-
-أفكار مفتوحة:
-- [ ] دعم غرف خاصة بكلمة مرور
-- [ ] قائمة غرف عامة (Public Room Browser)
-- [ ] Spectator mode (مشاهد بدون لعب)
-
----
-
-## 📋 قواعد Pull Request
-
-1. **فرع منفصل** لكل ميزة: `git checkout -b feat/ppsspp-support`
-2. **اختبر محلياً** قبل الرفع: `npm run dev:all`
-3. **وصف واضح** في الـ PR يشرح ماذا أضفت ولماذا
-4. **لا تكسر الـ Main Process** — تأكد من عمل IPC بشكل صحيح
-
----
-
-## 🐛 الإبلاغ عن Bug
-
-افتح Issue جديد مع:
-- نظام التشغيل والإصدار
-- اسم المحاكي والإصدار
-- خطوات إعادة الإنتاج
-- الـ Error من `electron-log` (في `%APPDATA%\nexus-netplay-hub\logs\`)
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
+ط´ظƒط±ط§ظ‹ ظ„ظ…ط³ط§ظ‡ظ…طھظƒ! ًں™ڈًںژ®

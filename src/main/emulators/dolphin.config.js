@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // src/main/emulators/dolphin.config.js
-=======
-// ─── Dolphin Config Injection ────────────────────────────────────────────────
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
 const fs   = require('fs');
 const path = require('path');
 const os   = require('os');
@@ -10,7 +6,6 @@ const { spawn } = require('child_process');
 
 function getDolphinConfigPath() {
   const home = os.homedir();
-<<<<<<< HEAD
   const candidates = {
     win32:  [path.join(process.env.APPDATA||'','Dolphin Emulator','Config','Dolphin.ini')],
     linux:  [path.join(home,'.config','dolphin-emu','Dolphin.ini')],
@@ -28,7 +23,7 @@ function injectDolphinNetplayConfig({ hostIP, port, isHost, nickname = 'Player' 
   const backup  = configPath + '.nexus-backup';
   if (!fs.existsSync(backup)) fs.copyFileSync(configPath, backup);
 
-  // Dolphin يستخدم قسم [NetPlay]
+  // Dolphin ظٹط³طھط®ط¯ظ… ظ‚ط³ظ… [NetPlay]
   let updated = content;
   const set = (key, value) => {
     const re = new RegExp(`^${key}\\s*=.*$`, 'm');
@@ -43,7 +38,7 @@ function injectDolphinNetplayConfig({ hostIP, port, isHost, nickname = 'Player' 
   set('TraversalPort', String(port));
 
   fs.writeFileSync(configPath, updated, 'utf-8');
-  console.log('[Dolphin] ✅ Config injected');
+  console.log('[Dolphin] âœ… Config injected');
   return { success: true };
 }
 
@@ -63,41 +58,3 @@ function launchDolphin(executablePath, gameFile = null, onExit = () => {}) {
 }
 
 module.exports = { injectDolphinNetplayConfig, restoreDolphinConfig, launchDolphin };
-=======
-  const defaults = {
-    win32:  [path.join(process.env.APPDATA || '', 'Dolphin Emulator', 'Config', 'Dolphin.ini')],
-    linux:  [path.join(home, '.config', 'dolphin-emu', 'Dolphin.ini')],
-    darwin: [path.join(home, 'Library', 'Application Support', 'Dolphin', 'Config', 'Dolphin.ini')],
-  };
-  const list = defaults[process.platform] || defaults.linux;
-  return list.find(p => fs.existsSync(p)) || list[0];
-}
-
-function injectDolphinNetplayConfig(networkConfig) {
-  const { hostIP, port, isHost, traversalCode } = networkConfig;
-  const configPath = getDolphinConfigPath();
-  console.log(`[Dolphin] Injecting netplay config → ${configPath}`);
-
-  // Dolphin uses its own Netplay UI, but we can pre-configure via INI
-  // In practice, Dolphin netplay is started programmatically via CLI args
-  const args = isHost
-    ? ['--exec', networkConfig.isoPath || '', `--netplay-host-code=${traversalCode || ''}`, `--netplay-port=${port}`]
-    : ['--exec', networkConfig.isoPath || '', `--netplay-connect=${hostIP}`, `--netplay-port=${port}`];
-
-  return { success: true, args };
-}
-
-function launchDolphin(executablePath, networkConfig = {}, onExit = () => {}) {
-  const { args } = injectDolphinNetplayConfig(networkConfig);
-  const filtered = args.filter(Boolean);
-  console.log(`[Dolphin] 🚀 ${executablePath} ${filtered.join(' ')}`);
-
-  const proc = spawn(executablePath, filtered, { detached: true, stdio: 'ignore' });
-  proc.unref();
-  proc.on('close', (code) => { console.log(`[Dolphin] ⛔ exit ${code}`); onExit(code); });
-  proc.on('error', (err)  => console.error('[Dolphin] ❌', err.message));
-  return proc.pid;
-}
-
-module.exports = { injectDolphinNetplayConfig, launchDolphin, getDolphinConfigPath };
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e

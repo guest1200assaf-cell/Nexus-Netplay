@@ -1,19 +1,18 @@
 <div align="center">
-<<<<<<< HEAD
 
 ```
-███╗   ██╗███████╗██╗  ██╗██╗   ██╗███████╗
-████╗  ██║██╔════╝╚██╗██╔╝██║   ██║██╔════╝
-██╔██╗ ██║█████╗   ╚███╔╝ ██║   ██║███████╗
-██║╚██╗██║██╔══╝   ██╔██╗ ██║   ██║╚════██║
-██║ ╚████║███████╗██╔╝ ██╗╚██████╔╝███████║
-╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝
+â–ˆâ–ˆâ–ˆâ•—   â–ˆâ–ˆâ•—â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—â–ˆâ–ˆâ•—  â–ˆâ–ˆâ•—â–ˆâ–ˆâ•—   â–ˆâ–ˆâ•—â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—
+â–ˆâ–ˆâ–ˆâ–ˆâ•—  â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â•گâ•گâ•گâ•گâ•‌â•ڑâ–ˆâ–ˆâ•—â–ˆâ–ˆâ•”â•‌â–ˆâ–ˆâ•‘   â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â•گâ•گâ•گâ•گâ•‌
+â–ˆâ–ˆâ•”â–ˆâ–ˆâ•— â–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—   â•ڑâ–ˆâ–ˆâ–ˆâ•”â•‌ â–ˆâ–ˆâ•‘   â–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—
+â–ˆâ–ˆâ•‘â•ڑâ–ˆâ–ˆâ•—â–ˆâ–ˆâ•‘â–ˆâ–ˆâ•”â•گâ•گâ•‌   â–ˆâ–ˆâ•”â–ˆâ–ˆâ•— â–ˆâ–ˆâ•‘   â–ˆâ–ˆâ•‘â•ڑâ•گâ•گâ•گâ•گâ–ˆâ–ˆâ•‘
+â–ˆâ–ˆâ•‘ â•ڑâ–ˆâ–ˆâ–ˆâ–ˆâ•‘â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•—â–ˆâ–ˆâ•”â•‌ â–ˆâ–ˆâ•—â•ڑâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•”â•‌â–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ–ˆâ•‘
+â•ڑâ•گâ•‌  â•ڑâ•گâ•گâ•گâ•‌â•ڑâ•گâ•گâ•گâ•گâ•گâ•گâ•‌â•ڑâ•گâ•‌  â•ڑâ•گâ•‌ â•ڑâ•گâ•گâ•گâ•گâ•گâ•‌ â•ڑâ•گâ•گâ•گâ•گâ•گâ•گâ•‌
      N E T P L A Y   H U B
 ```
 
-**نظام المحاكاة الشبكي العابر للمنصات**
+**ظ†ط¸ط§ظ… ط§ظ„ظ…ط­ط§ظƒط§ط© ط§ظ„ط´ط¨ظƒظٹ ط§ظ„ط¹ط§ط¨ط± ظ„ظ„ظ…ظ†طµط§طھ**
 
-اتصال P2P مباشر بدون سيرفرات · بدون اشتراكات · مجاني 100%
+ط§طھطµط§ظ„ P2P ظ…ط¨ط§ط´ط± ط¨ط¯ظˆظ† ط³ظٹط±ظپط±ط§طھ آ· ط¨ط¯ظˆظ† ط§ط´طھط±ط§ظƒط§طھ آ· ظ…ط¬ط§ظ†ظٹ 100%
 
 [![Release](https://img.shields.io/github/v/release/YOUR_USERNAME/nexus-netplay-hub?style=for-the-badge&color=0078d4&logo=github)](https://github.com/YOUR_USERNAME/nexus-netplay-hub/releases)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
@@ -21,270 +20,160 @@
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey?style=for-the-badge)](https://github.com/YOUR_USERNAME/nexus-netplay-hub/releases)
 
-=======
-  <img src="assets/icons/nexus.png" width="120" alt="Nexus Netplay Hub Logo" />
-
-  # Nexus Netplay Hub
-
-  **منصة اللعب الجماعي P2P — بدون سيرفر مركزي**
-
-  [![Release](https://img.shields.io/github/v/release/guest1200assaf-cell/Nexus-Netplay?style=for-the-badge&color=0078d4)](https://github.com/guest1200assaf-cell/Nexus-Netplay/releases)
-  [![License](https://img.shields.io/github/license/guest1200assaf-cell/Nexus-Netplay?style=for-the-badge&color=7c3aed)](LICENSE)
-  [![Build](https://img.shields.io/github/actions/workflow/status/guest1200assaf-cell/Nexus-Netplay/build-release.yml?style=for-the-badge)](https://github.com/guest1200assaf-cell/Nexus-Netplay/actions)
-  [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-informational?style=for-the-badge)](https://github.com/guest1200assaf-cell/Nexus-Netplay/releases)
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
 </div>
 
 ---
 
-## ✨ المزايا
+## âœ¨ ط§ظ„ظ…ط²ط§ظٹط§
 
-| الميزة | التفاصيل |
-<<<<<<< HEAD
+| ط§ظ„ظ…ظٹط²ط© | ط§ظ„طھظپط§طµظٹظ„ |
 |--------|----------|
-| 🔗 **اتصال P2P مباشر** | WebRTC عبر Simple-Peer — لا سيرفر وسيط، اتصال مشفر بين اللاعبين |
-| 🎙 **Voice Chat محلي** | شات صوتي بجودة 48kHz مع إلغاء الصدى وتقليل الضجيج |
-| 💾 **مزامنة Save States** | نقل ملفات الـ Save State تلقائياً قبل بدء اللعبة لضمان التزامن |
-| ⚙️ **Config Injection** | يعدّل ملفات `.ini` للمحاكيات برمجياً ويستعيدها عند الإغلاق |
-| 🔓 **فتح المنافذ (UPnP)** | يفتح المنافذ في الراوتر تلقائياً لضمان اتصال أخضر |
-| 🎮 **دعم Controller** | تنقل في الواجهة بالجوستيك — تجربة كاملة بدون لوحة مفاتيح |
-| 🔄 **تحديث تلقائي** | يفحص التحديثات عند الفتح ويثبّتها في الخلفية |
-| 🖥 **واجهة PS5** | تصميم مستوحى من PlayStation 5 بتأثيرات Blur وGlow |
-=======
-|--------|---------|
-| 🌐 **P2P Direct** | اتصال مباشر بدون سيرفر وسيط باستخدام WebRTC |
-| 👥 **4 لاعبين** | غرف تدعم حتى 4 لاعبين بشبكة Mesh كاملة |
-| 🎙 **Voice Chat** | صوت ثنائي الاتجاه مدمج عبر WebRTC Audio |
-| 💾 **مزامنة Save-State** | مزامنة نقطة الحفظ بين اللاعبين لبدء منسّق |
-| ⚙️ **Config Injection** | ضبط إعدادات المحاكي تلقائياً بدون تعديل يدوي |
-| 🎮 **Gamepad Navigation** | تنقل كامل بالـ Controller داخل الواجهة |
-| 💬 **شات نصي** | محادثة نصية P2P مباشرة داخل الغرفة |
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
+| ًں”— **ط§طھطµط§ظ„ P2P ظ…ط¨ط§ط´ط±** | WebRTC ط¹ط¨ط± Simple-Peer â€” ظ„ط§ ط³ظٹط±ظپط± ظˆط³ظٹط·طŒ ط§طھطµط§ظ„ ظ…ط´ظپط± ط¨ظٹظ† ط§ظ„ظ„ط§ط¹ط¨ظٹظ† |
+| ًںژ™ **Voice Chat ظ…ط­ظ„ظٹ** | ط´ط§طھ طµظˆطھظٹ ط¨ط¬ظˆط¯ط© 48kHz ظ…ط¹ ط¥ظ„ط؛ط§ط، ط§ظ„طµط¯ظ‰ ظˆطھظ‚ظ„ظٹظ„ ط§ظ„ط¶ط¬ظٹط¬ |
+| ًں’¾ **ظ…ط²ط§ظ…ظ†ط© Save States** | ظ†ظ‚ظ„ ظ…ظ„ظپط§طھ ط§ظ„ظ€ Save State طھظ„ظ‚ط§ط¦ظٹط§ظ‹ ظ‚ط¨ظ„ ط¨ط¯ط، ط§ظ„ظ„ط¹ط¨ط© ظ„ط¶ظ…ط§ظ† ط§ظ„طھط²ط§ظ…ظ† |
+| âڑ™ï¸ڈ **Config Injection** | ظٹط¹ط¯ظ‘ظ„ ظ…ظ„ظپط§طھ `.ini` ظ„ظ„ظ…ط­ط§ظƒظٹط§طھ ط¨ط±ظ…ط¬ظٹط§ظ‹ ظˆظٹط³طھط¹ظٹط¯ظ‡ط§ ط¹ظ†ط¯ ط§ظ„ط¥ط؛ظ„ط§ظ‚ |
+| ًں”“ **ظپطھط­ ط§ظ„ظ…ظ†ط§ظپط° (UPnP)** | ظٹظپطھط­ ط§ظ„ظ…ظ†ط§ظپط° ظپظٹ ط§ظ„ط±ط§ظˆطھط± طھظ„ظ‚ط§ط¦ظٹط§ظ‹ ظ„ط¶ظ…ط§ظ† ط§طھطµط§ظ„ ط£ط®ط¶ط± |
+| ًںژ® **ط¯ط¹ظ… Controller** | طھظ†ظ‚ظ„ ظپظٹ ط§ظ„ظˆط§ط¬ظ‡ط© ط¨ط§ظ„ط¬ظˆط³طھظٹظƒ â€” طھط¬ط±ط¨ط© ظƒط§ظ…ظ„ط© ط¨ط¯ظˆظ† ظ„ظˆط­ط© ظ…ظپط§طھظٹط­ |
+| ًں”„ **طھط­ط¯ظٹط« طھظ„ظ‚ط§ط¦ظٹ** | ظٹظپط­طµ ط§ظ„طھط­ط¯ظٹط«ط§طھ ط¹ظ†ط¯ ط§ظ„ظپطھط­ ظˆظٹط«ط¨ظ‘طھظ‡ط§ ظپظٹ ط§ظ„ط®ظ„ظپظٹط© |
+| ًں–¥ **ظˆط§ط¬ظ‡ط© PS5** | طھطµظ…ظٹظ… ظ…ط³طھظˆط­ظ‰ ظ…ظ† PlayStation 5 ط¨طھط£ط«ظٹط±ط§طھ Blur ظˆGlow |
 
 ---
 
-## 🎮 المحاكيات المدعومة
+## ًںژ® ط§ظ„ظ…ط­ط§ظƒظٹط§طھ ط§ظ„ظ…ط¯ط¹ظˆظ…ط©
 
 <div align="center">
 
-<<<<<<< HEAD
-| المحاكي | المنصة | ملف الإعدادات |
+| ط§ظ„ظ…ط­ط§ظƒظٹ | ط§ظ„ظ…ظ†طµط© | ظ…ظ„ظپ ط§ظ„ط¥ط¹ط¯ط§ط¯ط§طھ |
 |---------|--------|---------------|
 | **PCSX2** | PlayStation 2 | `PCSX2.ini` + `DEV9.ini` |
 | **Dolphin** | GameCube / Wii | `Dolphin.ini` |
 | **PPSSPP** | PlayStation Portable | `ppsspp.ini` |
-=======
-| المحاكي | النظام | الحالة |
-|---------|--------|--------|
-| **PCSX2** | PlayStation 2 | ✅ مدعوم |
-| **Dolphin** | GameCube / Wii | ✅ مدعوم |
-| **PPSSPP** | PlayStation Portable | ✅ مدعوم |
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
 
 </div>
 
 ---
 
-<<<<<<< HEAD
-## 📥 تحميل للمستخدمين
+## ًں“¥ طھط­ظ…ظٹظ„ ظ„ظ„ظ…ط³طھط®ط¯ظ…ظٹظ†
 
-> **لا تحتاج أي خطوات تقنية — فقط حمّل وشغّل**
+> **ظ„ط§ طھط­طھط§ط¬ ط£ظٹ ط®ط·ظˆط§طھ طھظ‚ظ†ظٹط© â€” ظپظ‚ط· ط­ظ…ظ‘ظ„ ظˆط´ط؛ظ‘ظ„**
 
 <div align="center">
 
-| النظام | الرابط |
+| ط§ظ„ظ†ط¸ط§ظ… | ط§ظ„ط±ط§ط¨ط· |
 |--------|--------|
-| 🪟 **Windows** (مثبّت) | [تحميل .exe](https://github.com/YOUR_USERNAME/nexus-netplay-hub/releases/latest) |
-| 🪟 **Windows** (Portable) | [تحميل مباشر](https://github.com/YOUR_USERNAME/nexus-netplay-hub/releases/latest) |
-| 🐧 **Linux** | [تحميل .AppImage](https://github.com/YOUR_USERNAME/nexus-netplay-hub/releases/latest) |
-| 🍎 **macOS** | [تحميل .dmg](https://github.com/YOUR_USERNAME/nexus-netplay-hub/releases/latest) |
+| ًںھں **Windows** (ظ…ط«ط¨ظ‘طھ) | [طھط­ظ…ظٹظ„ .exe](https://github.com/YOUR_USERNAME/nexus-netplay-hub/releases/latest) |
+| ًںھں **Windows** (Portable) | [طھط­ظ…ظٹظ„ ظ…ط¨ط§ط´ط±](https://github.com/YOUR_USERNAME/nexus-netplay-hub/releases/latest) |
+| ًںگ§ **Linux** | [طھط­ظ…ظٹظ„ .AppImage](https://github.com/YOUR_USERNAME/nexus-netplay-hub/releases/latest) |
+| ًںچژ **macOS** | [طھط­ظ…ظٹظ„ .dmg](https://github.com/YOUR_USERNAME/nexus-netplay-hub/releases/latest) |
 
 </div>
 
 ---
 
-## 🛠 تثبيت للمطورين
+## ًں›  طھط«ط¨ظٹطھ ظ„ظ„ظ…ط·ظˆط±ظٹظ†
 
-### المتطلبات
-- [Node.js](https://nodejs.org) v18 أو أحدث
+### ط§ظ„ظ…طھط·ظ„ط¨ط§طھ
+- [Node.js](https://nodejs.org) v18 ط£ظˆ ط£ط­ط¯ط«
 - [Git](https://git-scm.com)
 - npm v9+
 
-### خطوات التثبيت
+### ط®ط·ظˆط§طھ ط§ظ„طھط«ط¨ظٹطھ
 
 ```bash
-# 1. استنسخ المشروع
+# 1. ط§ط³طھظ†ط³ط® ط§ظ„ظ…ط´ط±ظˆط¹
 git clone https://github.com/YOUR_USERNAME/nexus-netplay-hub.git
 cd nexus-netplay-hub
 
-# 2. ثبّت المكتبات
+# 2. ط«ط¨ظ‘طھ ط§ظ„ظ…ظƒطھط¨ط§طھ
 npm install
 
-# 3. شغّل وضع التطوير
+# 3. ط´ط؛ظ‘ظ„ ظˆط¶ط¹ ط§ظ„طھط·ظˆظٹط±
 npm run dev
 ```
 
-### أوامر البناء
+### ط£ظˆط§ظ…ط± ط§ظ„ط¨ظ†ط§ط،
 
 ```bash
-npm run dev           # تشغيل بوضع التطوير (Vite + Electron)
-npm run build:win     # بناء Windows (.exe + Portable)
-npm run build:linux   # بناء Linux (.AppImage + .deb)
-npm run build:mac     # بناء macOS (.dmg)
-npm run obfuscate     # تشويش الكود قبل البناء
-npm run release       # بناء + رفع على GitHub Releases
-=======
-## 📥 التثبيت للمستخدمين
-
-### Windows
-1. حمّل `Nexus-Netplay-Setup-x.x.x.exe` من [Releases](https://github.com/YOUR_USERNAME/nexus-netplay-hub/releases)
-2. شغّل المثبّت واتبع الخطوات
-3. افتح التطبيق من قائمة Start أو سطح المكتب
-
-أو حمّل النسخة المحمولة `Nexus-Netplay-Portable-x.x.x.exe` بدون تثبيت.
-
----
-
-## 🛠 إعداد بيئة التطوير
-
-### المتطلبات
-
-- Node.js 18+
-- أحد المحاكيات: [PCSX2](https://pcsx2.net) / [Dolphin](https://dolphin-emu.org) / [PPSSPP](https://www.ppsspp.org)
-
-### التثبيت
-
-```bash
-git clone https://github.com/guest1200assaf-cell/Nexus-Netplay.git
-cd Nexus-Netplay
-npm install
-```
-
-### التشغيل (وضع التطوير)
-
-```bash
-# Vite فقط (للتصميم)
-npm run dev
-
-# Electron + Vite معاً (التجربة الكاملة)
-npm run dev:all
+npm run dev           # طھط´ط؛ظٹظ„ ط¨ظˆط¶ط¹ ط§ظ„طھط·ظˆظٹط± (Vite + Electron)
+npm run build:win     # ط¨ظ†ط§ط، Windows (.exe + Portable)
+npm run build:linux   # ط¨ظ†ط§ط، Linux (.AppImage + .deb)
+npm run build:mac     # ط¨ظ†ط§ط، macOS (.dmg)
+npm run obfuscate     # طھط´ظˆظٹط´ ط§ظ„ظƒظˆط¯ ظ‚ط¨ظ„ ط§ظ„ط¨ظ†ط§ط،
+npm run release       # ط¨ظ†ط§ط، + ط±ظپط¹ ط¹ظ„ظ‰ GitHub Releases
 ```
 
 ---
 
-## 📦 البناء والنشر
-
-```bash
-# بناء Windows (NSIS + Portable)
-npm run build:win
-
-# رفع Release لـ GitHub تلقائياً
-npm run release
-```
-
-أو استخدم Git Tags لتشغيل GitHub Actions تلقائياً:
-
-```bash
-git tag v1.0.0
-git push origin v1.0.0
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
-```
-
----
-
-## 🏗 هيكل المشروع
+## ًںڈ— ظ‡ظٹظƒظ„ ط§ظ„ظ…ط´ط±ظˆط¹
 
 ```
 nexus-netplay-hub/
-├── src/
-<<<<<<< HEAD
-│   ├── main/                    # Electron Main Process
-│   │   ├── main.js              # نقطة الدخول
-│   │   ├── preload.js           # جسر IPC الآمن
-│   │   ├── updater.js           # التحديث التلقائي
-│   │   ├── emulators/           # Config Injection لكل محاكي
-│   │   ├── ipc/                 # معالجات IPC
-│   │   └── network/             # خادم الإشارة المحلي (WebSocket)
-│   └── renderer/                # React Frontend
-│       ├── pages/               # الصفحات (Home, Lobby, Settings)
-│       ├── hooks/               # useP2P, useController, useVoiceChat
-│       ├── store/               # Zustand State Management
-│       └── components/          # مكونات الواجهة
-├── scripts/
-│   ├── obfuscate.js             # تشويش الكود
-│   └── generate-icons.js        # توليد الأيقونات
-├── assets/icons/                # أيقونات المنصات
-├── .github/workflows/           # GitHub Actions CI/CD
-├── electron-builder.yml         # إعدادات التحزيم
-└── package.json
+â”œâ”€â”€ src/
+â”‚   â”œâ”€â”€ main/                    # Electron Main Process
+â”‚   â”‚   â”œâ”€â”€ main.js              # ظ†ظ‚ط·ط© ط§ظ„ط¯ط®ظˆظ„
+â”‚   â”‚   â”œâ”€â”€ preload.js           # ط¬ط³ط± IPC ط§ظ„ط¢ظ…ظ†
+â”‚   â”‚   â”œâ”€â”€ updater.js           # ط§ظ„طھط­ط¯ظٹط« ط§ظ„طھظ„ظ‚ط§ط¦ظٹ
+â”‚   â”‚   â”œâ”€â”€ emulators/           # Config Injection ظ„ظƒظ„ ظ…ط­ط§ظƒظٹ
+â”‚   â”‚   â”œâ”€â”€ ipc/                 # ظ…ط¹ط§ظ„ط¬ط§طھ IPC
+â”‚   â”‚   â””â”€â”€ network/             # ط®ط§ط¯ظ… ط§ظ„ط¥ط´ط§ط±ط© ط§ظ„ظ…ط­ظ„ظٹ (WebSocket)
+â”‚   â””â”€â”€ renderer/                # React Frontend
+â”‚       â”œâ”€â”€ pages/               # ط§ظ„طµظپط­ط§طھ (Home, Lobby, Settings)
+â”‚       â”œâ”€â”€ hooks/               # useP2P, useController, useVoiceChat
+â”‚       â”œâ”€â”€ store/               # Zustand State Management
+â”‚       â””â”€â”€ components/          # ظ…ظƒظˆظ†ط§طھ ط§ظ„ظˆط§ط¬ظ‡ط©
+â”œâ”€â”€ scripts/
+â”‚   â”œâ”€â”€ obfuscate.js             # طھط´ظˆظٹط´ ط§ظ„ظƒظˆط¯
+â”‚   â””â”€â”€ generate-icons.js        # طھظˆظ„ظٹط¯ ط§ظ„ط£ظٹظ‚ظˆظ†ط§طھ
+â”œâ”€â”€ assets/icons/                # ط£ظٹظ‚ظˆظ†ط§طھ ط§ظ„ظ…ظ†طµط§طھ
+â”œâ”€â”€ .github/workflows/           # GitHub Actions CI/CD
+â”œâ”€â”€ electron-builder.yml         # ط¥ط¹ط¯ط§ط¯ط§طھ ط§ظ„طھط­ط²ظٹظ…
+â””â”€â”€ package.json
 ```
 
 ---
 
-## 🔧 كيف يعمل
+## ًں”§ ظƒظٹظپ ظٹط¹ظ…ظ„
 
 ```
-┌──────────────────────────────────────────────────────────────┐
-│                    Nexus Netplay Hub                         │
-│                                                              │
-│  ┌─────────────┐  IPC  ┌──────────────────────────────┐    │
-│  │ Main Process│◄─────►│     React Renderer (UI)      │    │
-│  │             │       │                              │    │
-│  │ • Config    │       │  Home → اختيار محاكي        │    │
-│  │   Injection │       │  Lobby → غرفة P2P           │    │
-│  │ • child_proc│       │  useP2P → WebRTC            │    │
-│  │ • UPnP      │       │  useVoiceChat → ميكروفون   │    │
-│  │ • WS Server │       │  useFrameSync → مزامنة     │    │
-│  └─────────────┘       └──────────────┬───────────────┘    │
-│                                       │                      │
-└───────────────────────────────────────┼──────────────────────┘
-                           WebRTC P2P  │
-                    ┌──────────────────▼──────────────────┐
-                    │            اللاعب الآخر             │
-                    │  Inputs + Voice + Save State Sync   │
-                    └─────────────────────────────────────┘
-=======
-│   ├── main/           # Electron main process
-│   │   ├── emulators/  # Config injection (PCSX2, Dolphin, PPSSPP)
-│   │   ├── ipc/        # IPC handlers
-│   │   ├── network/    # WebSocket signaling + UPnP
-│   │   └── updater.js  # Auto-updater
-│   ├── renderer/       # React frontend
-│   │   ├── components/ # UI components
-│   │   ├── hooks/      # useP2P, useVoiceChat, useFrameSync, useController
-│   │   ├── pages/      # Home, Lobby, Settings
-│   │   └── store/      # Zustand global state
-│   └── shared/         # Constants & protocols
-└── assets/icons/       # App icons
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”گ
+â”‚                    Nexus Netplay Hub                         â”‚
+â”‚                                                              â”‚
+â”‚  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”گ  IPC  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”گ    â”‚
+â”‚  â”‚ Main Processâ”‚â—„â”€â”€â”€â”€â”€â–؛â”‚     React Renderer (UI)      â”‚    â”‚
+â”‚  â”‚             â”‚       â”‚                              â”‚    â”‚
+â”‚  â”‚ â€¢ Config    â”‚       â”‚  Home â†’ ط§ط®طھظٹط§ط± ظ…ط­ط§ظƒظٹ        â”‚    â”‚
+â”‚  â”‚   Injection â”‚       â”‚  Lobby â†’ ط؛ط±ظپط© P2P           â”‚    â”‚
+â”‚  â”‚ â€¢ child_procâ”‚       â”‚  useP2P â†’ WebRTC            â”‚    â”‚
+â”‚  â”‚ â€¢ UPnP      â”‚       â”‚  useVoiceChat â†’ ظ…ظٹظƒط±ظˆظپظˆظ†   â”‚    â”‚
+â”‚  â”‚ â€¢ WS Server â”‚       â”‚  useFrameSync â†’ ظ…ط²ط§ظ…ظ†ط©     â”‚    â”‚
+â”‚  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”ک       â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”ک    â”‚
+â”‚                                       â”‚                      â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”ک
+                           WebRTC P2P  â”‚
+                    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”گ
+                    â”‚            ط§ظ„ظ„ط§ط¹ط¨ ط§ظ„ط¢ط®ط±             â”‚
+                    â”‚  Inputs + Voice + Save State Sync   â”‚
+                    â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”ک
 ```
 
 ---
 
-## 🤝 المساهمة
+## ًں¤‌ ط§ظ„ظ…ط³ط§ظ‡ظ…ط©
 
-<<<<<<< HEAD
-نرحب بالمساهمات! راجع [CONTRIBUTING.md](CONTRIBUTING.md) للتفاصيل.
-=======
-راجع [CONTRIBUTING.md](CONTRIBUTING.md) للتعرف على كيفية إضافة محاكيات جديدة أو تحسين نظام الغرف.
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
+ظ†ط±ط­ط¨ ط¨ط§ظ„ظ…ط³ط§ظ‡ظ…ط§طھ! ط±ط§ط¬ط¹ [CONTRIBUTING.md](CONTRIBUTING.md) ظ„ظ„طھظپط§طµظٹظ„.
 
 ---
 
-## 📄 الرخصة
+## ًں“„ ط§ظ„ط±ط®طµط©
 
-<<<<<<< HEAD
-هذا المشروع مرخص تحت [MIT License](LICENSE) — حر الاستخدام والتعديل والتوزيع.
+ظ‡ط°ط§ ط§ظ„ظ…ط´ط±ظˆط¹ ظ…ط±ط®طµ طھط­طھ [MIT License](LICENSE) â€” ط­ط± ط§ظ„ط§ط³طھط®ط¯ط§ظ… ظˆط§ظ„طھط¹ط¯ظٹظ„ ظˆط§ظ„طھظˆط²ظٹط¹.
 
 ---
 
 <div align="center">
 
-صُنع بـ ❤️ لمجتمع المحاكيات العربي
+طµظڈظ†ط¹ ط¨ظ€ â‌¤ï¸ڈ ظ„ظ…ط¬طھظ…ط¹ ط§ظ„ظ…ط­ط§ظƒظٹط§طھ ط§ظ„ط¹ط±ط¨ظٹ
 
-⭐ إذا أعجبك المشروع، لا تنسَ النجمة!
+â­گ ط¥ط°ط§ ط£ط¹ط¬ط¨ظƒ ط§ظ„ظ…ط´ط±ظˆط¹طŒ ظ„ط§ طھظ†ط³ظژ ط§ظ„ظ†ط¬ظ…ط©!
 
 </div>
-=======
-[MIT License](LICENSE) — © 2025 Nexus Team
->>>>>>> f2a15ce2b0ec8fe19827c78a926291a93c7a800e
