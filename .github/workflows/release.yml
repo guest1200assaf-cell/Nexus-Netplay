@@ -12,9 +12,6 @@ permissions:
 
 jobs:
 
-  # ══════════════════════════════════════════════════════════
-  # إنشاء Draft Release فارغ أولاً
-  # ══════════════════════════════════════════════════════════
   create-release:
     name: 📋 إنشاء Release
     runs-on: ubuntu-latest
@@ -60,9 +57,6 @@ jobs:
             });
             core.setOutput('upload_url', data.upload_url);
 
-  # ══════════════════════════════════════════════════════════
-  # بناء Windows
-  # ══════════════════════════════════════════════════════════
   build-windows:
     name: 🪟 Windows
     needs: create-release
@@ -77,8 +71,7 @@ jobs:
         env: { NODE_ENV: production }
 
       - name: بناء Windows
-        env: { GH_TOKEN: '${{ secrets.GH_TOKEN }}' }
-        run: npx electron-builder --win --config electron-builder.yml
+        run: npx electron-builder --win --publish never --config electron-builder.yml
 
       - name: رفع الملفات
         uses: actions/upload-artifact@v4
@@ -96,11 +89,8 @@ jobs:
             dist-electron/*.exe
             dist-electron/latest.yml
           draft: true
-        env: { GITHUB_TOKEN: '${{ secrets.GH_TOKEN }}' }
+        env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
 
-  # ══════════════════════════════════════════════════════════
-  # بناء Linux
-  # ══════════════════════════════════════════════════════════
   build-linux:
     name: 🐧 Linux
     needs: create-release
@@ -116,8 +106,7 @@ jobs:
         env: { NODE_ENV: production }
 
       - name: بناء Linux
-        env: { GH_TOKEN: '${{ secrets.GH_TOKEN }}' }
-        run: npx electron-builder --linux --config electron-builder.yml
+        run: npx electron-builder --linux --publish never --config electron-builder.yml
 
       - uses: actions/upload-artifact@v4
         with:
@@ -135,12 +124,8 @@ jobs:
             dist-electron/*.deb
             dist-electron/latest-linux.yml
           draft: true
-        env: { GITHUB_TOKEN: '${{ secrets.GH_TOKEN }}' }
+        env: { GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}' }
 
-
-  # ══════════════════════════════════════════════════════════
-  # ملخص نهائي
-  # ══════════════════════════════════════════════════════════
   summary:
     name: ✅ الملخص
     needs: [build-windows, build-linux]
@@ -154,7 +139,6 @@ jobs:
           echo "|--------|---------|" >> $GITHUB_STEP_SUMMARY
           echo "| 🪟 Windows | ${{ needs.build-windows.result == 'success' && '✅ نجح' || '❌ فشل' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| 🐧 Linux   | ${{ needs.build-linux.result   == 'success' && '✅ نجح' || '❌ فشل' }} |" >> $GITHUB_STEP_SUMMARY
-
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "📌 **الـ Release جاهز كـ Draft — انشره يدوياً بعد المراجعة**" >> $GITHUB_STEP_SUMMARY
           echo "🔗 https://github.com/${{ github.repository }}/releases" >> $GITHUB_STEP_SUMMARY
